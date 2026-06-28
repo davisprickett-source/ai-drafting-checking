@@ -1,0 +1,18 @@
+{
+  "name": "ai-drafting-checking",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Language-agnostic AI workflow for drafting and consultant-checking Bible translation. Drop into any translation project; configure via a language profile + reference pack.",
+  "type": "module",
+  "scripts": {
+    "setup-check": "bun tools/check-setup.ts",
+    "lexicon": "bun tools/build-lexicon.ts",
+    "incontext": "bun tools/build-incontext-pack.ts",
+    "instruction": "bun tools/generate-system-instruction.ts",
+    "check": "bun tools/check-draft.ts",
+    "score": "bun tools/score-draft.ts"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  }
+}

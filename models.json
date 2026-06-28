@@ -1,0 +1,32 @@
+{
+  "_README": "The active model roster. Edit `active_roster` to switch vendors, or edit a roster's entries to your own model ids. Full field docs: MODELS.md and models.template.json. Roles are abstract (workhorse / deep / independent); the workflows never name a specific model.",
+
+  "active_roster": "claude",
+
+  "rosters": {
+    "claude": {
+      "workhorse":   { "provider": "anthropic", "model": "claude-sonnet-4-6", "capability": "mid",  "cost_unit": 1, "invoke": "subagent" },
+      "deep":        { "provider": "anthropic", "model": "claude-opus-4-8",   "capability": "high", "cost_unit": 5, "invoke": "subagent" },
+      "independent": { "provider": "google",    "model": "gemini-2.5-pro",    "capability": "high", "cost_unit": 3, "invoke": "cli", "cli": "gemini -p" }
+    },
+
+    "gemini-only": {
+      "workhorse":   { "provider": "google", "model": "gemini-2.5-flash", "capability": "mid",  "cost_unit": 1, "invoke": "cli", "cli": "gemini -p" },
+      "deep":        { "provider": "google", "model": "gemini-2.5-pro",   "capability": "high", "cost_unit": 3, "invoke": "cli", "cli": "gemini -p" },
+      "independent": { "provider": "anthropic", "model": "claude-sonnet-4-6", "capability": "mid", "cost_unit": 1, "invoke": "subagent" }
+    },
+
+    "mixed-budget": {
+      "workhorse":   { "provider": "google",    "model": "gemini-2.5-flash",  "capability": "mid",  "cost_unit": 1, "invoke": "cli", "cli": "gemini -p" },
+      "deep":        { "provider": "openai",    "model": "gpt-5",             "capability": "high", "cost_unit": 4, "invoke": "api" },
+      "independent": { "provider": "anthropic", "model": "claude-sonnet-4-6", "capability": "mid",  "cost_unit": 1, "invoke": "subagent" }
+    }
+  },
+
+  "tiers": {
+    "L1":   [ { "role": "workhorse", "count": 1 } ],
+    "L1.5": [ { "role": "workhorse", "count": 1 } ],
+    "L2":   [ { "role": "workhorse", "count": 3 } ],
+    "L3":   [ { "role": "deep", "count": 2 }, { "role": "workhorse", "count": 1 }, { "role": "independent", "count": 1 } ]
+  }
+}

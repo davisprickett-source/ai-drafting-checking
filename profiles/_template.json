@@ -1,0 +1,79 @@
+{
+  "_README": "Copy this file to profiles/<iso639_3>.json and fill it in. This single JSON + the reference pack in references/ is everything language-specific. The engine code never changes. JSON has no comments, so each field is documented in profiles/README.md. Delete the _README and any _example_* keys you don't need.",
+
+  "language": "Your Language Name",
+  "iso639_3": "xxx",
+  "script": "describe the script/orthography, e.g. 'Latin romanization' or 'Arabic script'",
+  "lwc": ["Primary LWC", "Secondary LWC"],
+  "divine_name": "how the divine name is rendered",
+
+  "paths": {
+    "corpus": "corpus/<iso>-corpus.json",
+    "lexicon": "references/lexicon.json",
+    "approved_additions": "references/approved-additions.json",
+    "check_set": "check-set/<iso>-check.json",
+    "reference_pack": "references/",
+    "incontext_pack": "references/incontext-pack.md",
+    "references": {
+      "_example_label": "reference-versions/<lwc-bible>.json"
+    }
+  },
+
+  "suffixes": [],
+
+  "borrowings": {
+    "_example": "wider-communication form -> the attested local form to prefer"
+  },
+
+  "key_terms_anchor": {
+    "God": "",
+    "the LORD": ""
+  },
+
+  "vowels": "",
+  "core_word_pattern": "^[\\p{L}'ʼ]+$",
+  "book_aliases": {},
+  "stopwords": [],
+
+  "linter_rules": [
+    {
+      "id": "EX-rule",
+      "pattern": "example_bad_form",
+      "flags": "gi",
+      "severity": "warn",
+      "lexExempt": false,
+      "message": "what is wrong and what to use instead"
+    }
+  ],
+
+  "density_checks": [
+    {
+      "id": "EX-density",
+      "form": "\\bdiscouraged_form\\b",
+      "flags": "gi",
+      "vs": "\\bpreferred_form\\b",
+      "vsFlags": "gi",
+      "severity": "warn",
+      "message": "discouraged form is overused relative to the preferred form"
+    }
+  ],
+
+  "incontext_patterns": [
+    {
+      "name": "Example construction — short label",
+      "note": "one line on what this construction is / when to use it",
+      "pattern": "regex matching the construction in corpus verses",
+      "flags": "i",
+      "n": 5
+    }
+  ],
+
+  "structure_patterns": [
+    {
+      "id": "narrative-opening",
+      "desc": "how the corpus opens a scene (used by find-structures.ts)",
+      "pattern": "^(regex for a fronted time-setting clause)",
+      "flags": "i"
+    }
+  ]
+}

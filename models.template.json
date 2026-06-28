@@ -1,0 +1,63 @@
+{
+  "_README": "Copy to models.json and edit. This file makes the system MODEL-AGNOSTIC: the workflows (MODES.md, multi-model/COUNCIL.md, estimate-cost.ts) refer to abstract ROLES, never to specific model names. You map each role to whatever model you actually have — any vendor (Anthropic, Google, OpenAI, xAI, a local model). Swap the whole roster by changing `active_roster`. JSON has no comments; every field is documented in MODELS.md.",
+
+  "active_roster": "claude",
+
+  "_roles_doc": {
+    "workhorse": "Routine drafting and per-verse review. Mid capability, low cost. The tier you run most.",
+    "deep": "Hard verses (cruxes, poetry) + the referee/synthesis role + final review. High capability, higher cost.",
+    "independent": "A DIFFERENT VENDOR from your primary, used to mine cross-model disagreement (the old 'Gemini slot', generalized). Its value is that it fails in different places than your workhorse/deep — so where it disagrees is where a human should look. If your workhorse+deep are Anthropic, put a Google/OpenAI model here (and vice-versa).",
+    "fast": "OPTIONAL. Cheapest model, for mechanical sub-tasks only (never for generating the target language). Omit if you don't have one.",
+    "local": "OPTIONAL. An offline / zero-marginal-cost model (Ollama, llama.cpp). Omit if not used."
+  },
+
+  "_entry_fields": {
+    "provider": "anthropic | google | openai | xai | local | other",
+    "model": "the model id your provider expects (these churn — set to what your account currently offers)",
+    "capability": "low | mid | high — used to keep deep > workhorse and to warn if you put a low model on a generation role",
+    "cost_unit": "relative per-agent output-price weight (drives estimate-cost.ts). Set Anthropic Sonnet=1 as the baseline and scale others to it.",
+    "invoke": "subagent (spawned inside a Claude Code session) | cli (you run a CLI and paste the result) | api (a script calls the API) | manual (you drive it in a chat window)",
+    "cli": "OPTIONAL command template for invoke=cli, e.g. 'gemini -p' — informational, the runner just needs to know how you'll call it",
+    "notes": "OPTIONAL free text"
+  },
+
+  "rosters": {
+    "claude": {
+      "workhorse":   { "provider": "anthropic", "model": "claude-sonnet-4-6", "capability": "mid",  "cost_unit": 1, "invoke": "subagent" },
+      "deep":        { "provider": "anthropic", "model": "claude-opus-4-8",   "capability": "high", "cost_unit": 5, "invoke": "subagent" },
+      "independent": { "provider": "google",    "model": "gemini-2.5-pro",    "capability": "high", "cost_unit": 3, "invoke": "cli", "cli": "gemini -p", "notes": "different vendor than workhorse/deep on purpose — the disagreement IS the finding" }
+    },
+
+    "gemini-only": {
+      "workhorse":   { "provider": "google", "model": "gemini-2.5-flash", "capability": "mid",  "cost_unit": 1, "invoke": "cli", "cli": "gemini -p" },
+      "deep":        { "provider": "google", "model": "gemini-2.5-pro",   "capability": "high", "cost_unit": 3, "invoke": "cli", "cli": "gemini -p" },
+      "independent": { "provider": "anthropic", "model": "claude-sonnet-4-6", "capability": "mid", "cost_unit": 1, "invoke": "subagent", "notes": "cross-vendor voice" }
+    },
+
+    "openai-only": {
+      "workhorse":   { "provider": "openai", "model": "gpt-5-mini", "capability": "mid",  "cost_unit": 1, "invoke": "api" },
+      "deep":        { "provider": "openai", "model": "gpt-5",      "capability": "high", "cost_unit": 4, "invoke": "api" },
+      "independent": { "provider": "google", "model": "gemini-2.5-pro", "capability": "high", "cost_unit": 3, "invoke": "cli", "cli": "gemini -p" }
+    },
+
+    "mixed-budget": {
+      "workhorse":   { "provider": "google",    "model": "gemini-2.5-flash", "capability": "mid",  "cost_unit": 1, "invoke": "cli", "cli": "gemini -p", "notes": "cheapest decent generator available to many teams" },
+      "deep":        { "provider": "openai",    "model": "gpt-5",            "capability": "high", "cost_unit": 4, "invoke": "api" },
+      "independent": { "provider": "anthropic", "model": "claude-sonnet-4-6", "capability": "mid", "cost_unit": 1, "invoke": "subagent" }
+    },
+
+    "local-first": {
+      "workhorse":   { "provider": "local", "model": "qwen2.5:32b", "capability": "mid", "cost_unit": 0, "invoke": "cli", "cli": "ollama run qwen2.5:32b", "notes": "zero marginal cost; quality varies by language — verify hard with the free L0 tools" },
+      "deep":        { "provider": "anthropic", "model": "claude-opus-4-8", "capability": "high", "cost_unit": 5, "invoke": "subagent", "notes": "spend real inference only on the hard verses a local model can't carry" },
+      "independent": { "provider": "google", "model": "gemini-2.5-pro", "capability": "high", "cost_unit": 3, "invoke": "cli", "cli": "gemini -p" }
+    }
+  },
+
+  "tiers": {
+    "_doc": "Maps each inference tier (MODES.md) to a mix of roles. estimate-cost.ts reads this so the cost numbers, the docs, and the runner all share ONE source of truth. L0 is free (no agents) and is not listed. counts are agents-per-verse.",
+    "L1":   [ { "role": "workhorse", "count": 1 } ],
+    "L1.5": [ { "role": "workhorse", "count": 1 } ],
+    "L2":   [ { "role": "workhorse", "count": 3 } ],
+    "L3":   [ { "role": "deep", "count": 2 }, { "role": "workhorse", "count": 1 }, { "role": "independent", "count": 1 } ]
+  }
+}
