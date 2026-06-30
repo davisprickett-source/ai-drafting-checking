@@ -1,0 +1,199 @@
+{
+  "language": "Lagwan",
+  "iso639_3": "kot",
+  "script": "Latin romanization — extended Latin alphabet including implosives (ɓ Ɓ, ɗ Ɗ), mid-central vowels (ǝ Ǝ, ɨ Ɨ), special r (ɍ Ɍ). Apostrophe ʼ marks ejectives (k'el, tl'ɨren). No Arabic script; Arabic-script characters in Lagwan body text = error.",
+  "lwc": [
+    "French",
+    "Chadian Arabic"
+  ],
+  "divine_name": "Malwa (God); Bɨla ha Dɨma (Lord/the LORD)",
+
+  "paths": {
+    "corpus": "corpus/kot-corpus.json",
+    "lexicon": "references/kot-lexicon.json",
+    "approved_additions": "references/kot-approved-additions.json",
+    "check_set": "check-set/kot-check.json",
+    "reference_pack": "references/",
+    "incontext_pack": "references/kot-incontext-pack.md",
+    "notes": "LUK 23-24 are withheld from corpus → check-set/kot-check.json (consultant-check sandbox)"
+  },
+
+  "suffixes": ["-ne", "-ale", "-ya", "-na", "-sɨn", "-he", "-zi", "-za"],
+
+  "borrowings": {
+    "angel (Arabic ملك)": "malika — attested throughout NT (not 'anjel' or French 'ange')",
+    "law (Arabic شريعة)": "shariya — attested (not 'loi' or 'hukum')",
+    "community/people (Arabic جماعة)": "jamaa — attested",
+    "time/era (Arabic زمان)": "zaman — attested",
+    "pray (Arabic دعاء)": "aduwa — attested as 'ghɨnel aduwa' (do prayer)",
+    "bless/blessing (Arabic بركة)": "barka — attested",
+    "prophet (Arabic نبي)": "nabi — attested",
+    "believe (Arabic آمن)": "amman — attested",
+    "sin (Arabic ذنوب pl.)": "nzunubu — attested",
+    "joy (Arabic فرح)": "farhansɨn — attested as 'ghɨn farhansɨn' (make joy)",
+    "king/royal (Arabic ملك)": "malik — attested in compound forms",
+    "Messiah / Christ (Arabic)": "Almassihu — check consistency; may also appear as 'Kristo'",
+    "holy (Arabic قدس)": "sɨfaxɨ zi ya — attested phrase for 'holy' in Vushi ha a Sɨfaxɨ zi ya (Holy Spirit)"
+  },
+
+  "key_terms_anchor": {
+    "God": "Malwa",
+    "the LORD / Lord": "Bɨla ha Dɨma",
+    "Jesus": "Yasu",
+    "Holy Spirit": "Vushi ha a Sɨfaxɨ zi ya",
+    "Christ / Messiah": "TODO — check corpus for attested form",
+    "angel": "malika",
+    "prophet": "nabi",
+    "temple": "mba hɨn msɨnel Malwa (attested Matt 21:13 — confirm standard term)",
+    "sin": "nzunubu",
+    "kingdom": "fɨnawun — verify (kingdom/reign of God)",
+    "faith/believe": "amman",
+    "disciple / follower": "fuk'urayye (203 corpus hits — confirmed)",
+    "Moses": "Musa (not Musaku — corpus-corrected)",
+    "Peter": "Butrus (not Bitrus — corpus-corrected)",
+    "Simon": "Sim'an (not Simun — corpus-corrected)"
+  },
+
+  "vowels": "a e ǝ i ɨ o u",
+  "core_word_pattern": "^[\\p{L}']+$",
+
+  "book_aliases": {
+    "GEN": "Genesis / Slun He",
+    "EXO": "Exodus / Slun He Musaku",
+    "MAT": "Matthew / Matta",
+    "MRK": "Mark / Markus",
+    "LUK": "Luke / Luka"
+  },
+
+  "stopwords": ["ha", "hi", "na", "ne", "ale", "ya", "ta", "ka", "da", "sa", "ga", "a", "i", "u", "ge", "ki", "te", "ti", "wa", "ni"],
+
+  "linter_rules": [
+    {
+      "id": "KOT-arabic-script",
+      "pattern": "[\\u0600-\\u06FF]",
+      "flags": "g",
+      "severity": "error",
+      "message": "Arabic-script character in Lagwan body text — Lagwan uses Latin only. Remove or transliterate."
+    },
+    {
+      "id": "KOT-french-conj",
+      "pattern": "\\b(et|le|la|les|de|du|des|une|que|qui|dans|avec|pour|sur|par|mais|donc|car|elle|ils|elles|nous|vous)\\b",
+      "flags": "gi",
+      "severity": "warn",
+      "message": "French function word in Lagwan body text — likely a slip (proofreading intrusion). Verify it is not part of a Lagwan token or proper name."
+    },
+    {
+      "id": "KOT-hausa-form",
+      "pattern": "\\b(Allah|gaskiya|yaro|uba|mata|mutum)\\b",
+      "flags": "gi",
+      "severity": "warn",
+      "message": "Hausa/Nigerian-Arabic form detected — Lagwan has its own attested equivalents. Verify this is not a cross-language leak (Allah → Malwa; mutum → check corpus)."
+    },
+    {
+      "id": "KOT-long-run-no-vowel",
+      "pattern": "[^aeiouǝɨAEIOUƏƗ ]{5,}",
+      "flags": "g",
+      "severity": "warn",
+      "message": "5+ consonants in a row with no vowel — likely a typographical error or encoding issue. Lagwan words have regular V-C-V patterns."
+    },
+    {
+      "id": "KOT-bad-implosive-ascii",
+      "pattern": "\\bb(?=[ɓ])|(?<=[ɓ])b\\b|\\bd(?=[ɗ])|(?<=[ɗ])d\\b",
+      "flags": "g",
+      "severity": "warn",
+      "message": "Possible implosive rendering: confirm ɓ/ɗ is used (not plain b/d) where the word requires the implosive. The Settings.xml valid-character set distinguishes b/ɓ and d/ɗ."
+    },
+    {
+      "id": "KOT-duplicate-article",
+      "pattern": "\\bale\\s+ale\\b",
+      "flags": "gi",
+      "severity": "error",
+      "message": "Duplicate determiner 'ale ale' — likely a copy-paste or editing artifact."
+    },
+    {
+      "id": "KOT-malwa-case",
+      "pattern": "\\bmalwa\\b",
+      "flags": "g",
+      "severity": "warn",
+      "message": "Lowercase 'malwa' for God — should be capitalized 'Malwa' (proper noun, divine name). Check if intentional."
+    },
+    {
+      "id": "KOT-yasu-variant",
+      "pattern": "\\b(Jesu|Isa|Issa|Yesu|Yésu)\\b",
+      "flags": "gi",
+      "severity": "error",
+      "message": "Non-standard Jesus name: attested form is 'Yasu' in this translation. Standardize."
+    },
+    {
+      "id": "KOT-bɨla-ha-dɨma-split",
+      "pattern": "Bɨla ha [Dd]ima\\b(?!\\s+ale\\b)",
+      "flags": "g",
+      "severity": "warn",
+      "message": "REVIEW: 'Bɨla ha Dɨma' without 'ale' — check whether the determiner 'ale' is expected in this syntactic position."
+    }
+  ],
+
+  "density_checks": [
+    {
+      "id": "KOT-malwa-vs-bɨla",
+      "form": "\\bMalwa\\b",
+      "flags": "g",
+      "vs": "\\bBɨla ha Dɨma\\b",
+      "vsFlags": "g",
+      "severity": "warn",
+      "message": "Ratio of 'Malwa' (God) to 'Bɨla ha Dɨma' (Lord) — flag if one is heavily over-represented relative to the source's GOD/LORD distribution (OT passages in particular should distinguish these)."
+    }
+  ],
+
+  "incontext_patterns": [
+    {
+      "name": "Sequential narrative — 'Deɗɨ ne'",
+      "note": "'Deɗɨ ne' = 'Then / At that time' — the standard sequential-narrative connector in Lagwan (check consistency)",
+      "pattern": "\\bDeɗɨ ne\\b",
+      "flags": "i",
+      "n": 6
+    },
+    {
+      "name": "Speech-quote opener — 'a ka … ki'",
+      "note": "Standard Lagwan quotative: SUBJ a ka [ADDRESSEE] ki «…» — all speech events should follow this frame",
+      "pattern": "\\ba ka [^«]+ki «",
+      "flags": "i",
+      "n": 6
+    },
+    {
+      "name": "Time-setting fronted clause — 'Na zaman/saa/yahɨ'",
+      "note": "Scene-setting fronted temporal: 'Na zaman…', 'Saa hɨn…', 'Na yahɨ…' — discourse boundary marker",
+      "pattern": "\\b(Na zaman|Saa hɨn|Na yahɨ)",
+      "flags": "i",
+      "n": 5
+    },
+    {
+      "name": "Divine name compound — 'Bɨla ha Dɨma ale'",
+      "note": "Full attested form of 'the LORD' with determiner — used in formal register",
+      "pattern": "Bɨla ha Dɨma ale",
+      "flags": "i",
+      "n": 5
+    }
+  ],
+
+  "structure_patterns": [
+    {
+      "id": "narrative-temporal-front",
+      "desc": "Fronted time clause opening a new scene (Na zaman / Saa hɨn / Na yahɨ / Na ngul)",
+      "pattern": "^Na (zaman|saa|yahɨ|ngul|ge)|^Saa hɨn",
+      "flags": "i"
+    },
+    {
+      "id": "speech-event",
+      "desc": "Lagwan quotative frame: subject + a ka + (addressee) + ki + « ... »",
+      "pattern": "\\ba ka .{0,30}ki «",
+      "flags": "i"
+    },
+    {
+      "id": "sequential-connector",
+      "desc": "Sequential narrative connector 'Deɗɨ ne' (Then) between scenes",
+      "pattern": "^Deɗɨ ne",
+      "flags": "i"
+    }
+  ]
+}

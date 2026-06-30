@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1 Samuel 1</title>
+<style>
+ :root{--bg:#f6f5f2;--card:#fff;--ink:#1d2733;--mut:#717c8a;--line:#e7e4dd;--bad:#fde2e0;--accent:#34506b}
+ *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,Segoe UI,Roboto,sans-serif}
+ header{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);padding:12px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+ header h1{margin:0;font-size:17px}
+ .toolbar{display:flex;gap:8px;align-items:center;margin-left:auto;flex-wrap:wrap}
+ .toolbar button,.seg button{font:13px inherit;border:1px solid #cdd6df;background:#f2f6fa;border-radius:7px;padding:5px 11px;cursor:pointer}
+ .seg{display:inline-flex;border:1px solid #cdd6df;border-radius:7px;overflow:hidden}.seg button{border:0;border-radius:0;background:#fff}.seg button.on{background:var(--accent);color:#fff}
+ .legend{font-size:12px;color:var(--mut)}.legend b{background:var(--bad);font-weight:400;padding:0 3px;border-radius:3px}
+ main{max-width:920px;margin:0 auto;padding:18px}
+ .v{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:12px 16px;margin-bottom:12px}
+ .vbar{display:flex;align-items:center;gap:9px;font-size:13px}
+ .vnum{font-weight:700;color:var(--accent)}.spacer{flex:1}
+ .dot{width:10px;height:10px;border-radius:50%;display:inline-block;cursor:help}.dot.high{background:#2e7d32}.dot.med{background:#c79a1e}.dot.low{background:#c0392b}
+ .appr{color:#256135}.v.approved{border-color:#9bcBa8;box-shadow:inset 4px 0 0 #2e7d32}.v.approved .appr{background:#2e7d32;color:#fff;border-color:#2e7d32}
+ .prend{font-size:18.5px;line-height:1.75;margin:9px 0 4px}
+ .pedit{font-size:18px;line-height:1.7;border:1px dashed #cdd6df;border-radius:8px;padding:8px 11px;background:#fcfbf9;color:#333;margin-top:6px}
+ .pedit:focus{outline:2px solid #9cc0ea;background:#fff}
+ .w.bad{background:var(--bad);border-radius:3px;padding:0 2px;box-shadow:inset 0 -2px 0 #e57373;cursor:help}
+ sup.q{color:#b8860b;font-weight:700;cursor:help}sup.oc{color:#3b6ea5;font-size:10px}
+ .opt{background:#eaf2fb;border:1px solid #cfe0f2;border-radius:6px;padding:0 6px;cursor:pointer}
+ .vdetails{display:none;margin-top:10px;border-top:1px solid var(--line);padding-top:8px}
+ .v.open .vdetails{display:block}
+ .block{margin:10px 0}.bh{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);font-weight:700;margin-bottom:4px}
+ .block.qc{background:#fff8e6;border:1px solid #f0e2b8;border-radius:8px;padding:8px 10px}
+ .drafts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+ .dcol{border:1px solid var(--line);border-radius:8px;padding:9px 11px;background:#fcfbf9;font-size:15.5px}
+ .dh{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);margin-bottom:5px}
+ .darg{margin-top:6px;color:var(--mut);font-size:12.5px;font-style:italic}
+ .lbl{display:inline-block;min-width:74px;color:var(--mut);font-size:11px;text-transform:uppercase;vertical-align:top}
+ .btrow{margin:3px 0;font-size:14.5px}.btv{margin-top:6px;font-weight:600;color:#256135;font-size:14px}
+ .warrant{color:var(--mut);font-size:13px}.cz{font-weight:600}ul{margin:5px 0 5px 2px;padding-left:18px}li{margin:3px 0}
+ /* reading mode: just the final drafts */
+ body.reading .pedit,body.reading .vdetails,body.reading .tog,body.reading .appr{display:none}
+ body.reading .v{padding:7px 16px;margin-bottom:5px}body.reading .prend{margin:2px 0}
+</style></head>
+<body class="review">
+<header><h1>1 Samuel 1</h1>
+ <div class="legend"><b>red</b>=not in NT corpus · <sup class="q">?</sup>=unsure · blue=options (hover)</div>
+ <div class="toolbar">
+   <span class="seg"><button id="bRead" onclick="setMode('reading')">Reading</button><button id="bRev" class="on" onclick="setMode('review')">Review</button></span>
+   <button onclick="allDet(true)">expand all</button><button onclick="allDet(false)">collapse all</button>
+   <button onclick="copyApproved()">copy approved (USFM)</button>
+ </div>
+</header>
+<main>
+    <section class="v" data-num="5">
+      <div class="vbar">
+        <span class="vnum">1 Samuel 1:5</span><span class="dot low" title="confidence LOW: models disagree on verb-aspect; unattested words: biyiddi, nassiib, mithleen; appayim is a textual crux"></span>
+        <span class="spacer"></span>
+        <button class="appr" onclick="toggleAppr(this)">approve</button>
+        <button class="tog" onclick="toggleDet(this)">details</button>
+      </div>
+      <div class="prend"><span class="w">Wa</span> <span class="w">laakin</span> <span class="w bad" title="not attested in the NT corpus — verify">Alikhaana</span> <span class="w">gaaʼid</span> <span class="w bad" title="not attested in the NT corpus — verify">yantii</span> <span class="w">le-Hanna</span> <span class="w bad" title="not attested in the NT corpus — verify">nasiib</span> <span class="opt" title="options — hover/click to choose: akbar  ·  ittneen" data-opts="akbar|ittneen">akbar<sup class="oc">2</sup></span><span class="w">,</span> <span class="w">achaan</span> <span class="w">yihibb</span> <span class="w">Hanna,</span> <span class="w">wa</span> <span class="w">laakin</span> <span class="w">Allah</span> <span class="w">aagre-ha.</span><sup class="q" title="model unsure">?</sup></div>
+      <div class="pedit" contenteditable="true" spellcheck="false">Wa laakin Alikhaana gaaʼid yantii le-Hanna nasiib akbar, achaan yihibb Hanna, wa laakin Allah aagre-ha.</div>
+      <div class="vdetails">
+        <div class="block"><div class="bh">Decisions</div><ul><li>Verb: chose gaaʼid (Opus) over Sonnet's kaan — kaan is a dialect leak. But the habitual 'used to give each year' aspect still needs a native call.</li><li>appayim: leaning 'double' (akbar) per French 'portion double'; left as an option.</li><li>Barren: aagre idiom — matches the French 'rendue stérile' and the back-translation; rejected the womb-calque.</li><li>Vocab: nasiib not Sonnet's unattested nassiib; rejected biyiddi (0 NT hits).</li></ul></div>
+        <div class="block"><div class="bh">Source</div><div class="btrow"><span class="lbl">Hebrew</span> and-to-Hannah he-gave one portion APPAYIM (crux: 'double / two-fold' OR 'of two faces / worthy'); for he-loved Hannah, and-YHWH had-closed her-womb.</div><div class="btrow"><span class="lbl">French</span> <i>Mais il donnait à Anne une portion double; car il aimait Anne, que l'Éternel avait rendue stérile.</i></div><div class="btrow"><span class="lbl">Issue</span> (1) appayim is a textual/lexical crux. (2) 'closed her womb' is a Hebrew idiom that must not be calqued.</div></div>
+        <div class="block"><div class="bh">Model drafts</div><div class="drafts">
+        <div class="dcol"><div class="dh">Opus</div><div><span class="w">Wa</span> <span class="w">laakin</span> <span class="w">le-Hanna</span> <span class="w">gaaʼid</span> <span class="w bad" title="not attested in the NT corpus — verify">yantii</span> <span class="w bad" title="not attested in the NT corpus — verify">nasiib</span><sup class="q" title="model unsure">?</sup> <span class="opt" title="options — hover/click to choose: akbar  ·  ittneen" data-opts="akbar|ittneen">akbar<sup class="oc">2</sup></span><span class="w">,</span> <span class="w">achaan</span> <span class="w bad" title="not attested in the NT corpus — verify">Alikhaana</span> <span class="w">yihibb</span> <span class="w">Hanna,</span> <span class="w">wa</span> <span class="w">laakin</span> <span class="w">Allah</span> <span class="w">aagre-ha.</span></div><div class="darg">gaaʼid for the iterative giving; uses the natural aagre idiom rather than a womb-calque.</div></div>
+        <div class="dcol"><div class="dh">Sonnet</div><div><span class="w">Laakin</span> <span class="w bad" title="not attested in the NT corpus — verify">Alikhaana</span> <span class="w">kaan</span> <span class="w bad" title="not attested in the NT corpus — verify">biyiddi</span> <span class="w">Hanna</span> <span class="opt" title="options — hover/click to choose: nassiib mithleen  ·  nassiib kabiir⟨?⟩" data-opts="nassiib mithleen|nassiib kabiir⟨?⟩">nassiib mithleen<sup class="oc">2</sup></span> <span class="w">achaan</span> <span class="w">kaan</span> <span class="w bad" title="not attested in the NT corpus — verify">biyihibbha,</span> <span class="w">wa</span> <span class="w">Allah</span> <span class="w">sakar</span> <span class="w bad" title="not attested in the NT corpus — verify">rahimha.</span></div><div class="darg">kaan for habitual past; sakar rahimha keeps the Hebrew image of active closure.</div></div>
+        <div class="dcol"><div class="dh">Gemini</div><div><span class="w bad" title="not attested in the NT corpus — verify">(run</span> <span class="w bad" title="not attested in the NT corpus — verify">the</span> <span class="w bad" title="not attested in the NT corpus — verify">same</span> <span class="w bad" title="not attested in the NT corpus — verify">prompt</span> <span class="w">in</span> <span class="w bad" title="not attested in the NT corpus — verify">your</span> <span class="w bad" title="not attested in the NT corpus — verify">Gemini</span> <span class="w bad" title="not attested in the NT corpus — verify">CLI</span> <span class="w bad" title="not attested in the NT corpus — verify">and</span> <span class="w bad" title="not attested in the NT corpus — verify">paste</span> <span class="w bad" title="not attested in the NT corpus — verify">the</span> <span class="w bad" title="not attested in the NT corpus — verify">draft</span> <span class="w bad" title="not attested in the NT corpus — verify">here)</span></div></div></div></div>
+        
+        <div class="block"><div class="bh">Back-translation → French</div>
+          <div class="btrow"><span class="lbl">draft→FR</span> <i>Mais à Hanna, il lui donnait toujours une part (plus grande / deux) parce qu'Elkana aimait Hanna, mais Dieu l'avait rendue stérile.</i></div>
+          <div class="btrow"><span class="lbl">source FR</span> <i>Mais il donnait à Anne une portion double; car il aimait Anne, que l'Éternel avait rendue stérile.</i></div>
+          <div class="btv">Meaning preserved. 'rendue stérile' matches the source EXACTLY — the aagre idiom is faithful, not a calque. Participants and clause structure correct. Only divergence: the draft left the appayim crux unresolved ('plus grande / deux' vs source 'double').</div></div>
+        <div class="block"><div class="bh">Council</div><div>Verb aspect — Opus used gaaʼid, Sonnet used kaan. kaan is a flagged dialect leak (the verifier confirms 2× kaan). But gaaʼid marks ongoing-present, not habitual-past, so NEITHER is clearly right for 'he used to give each year'. This is the one genuinely open decision; needs a native call. appayim — French 'portion double' favours the 'double' reading (akbar / hissateen) over literal 'two'. Womb idiom — both models converge that aagre is the natural Chadian path; Sonnet's sakar rahimha is the formal source-faithful alternative. French 'rendue stérile' supports aagre.</div></div>
+        <div class="block qc"><div class="bh">Corpus QC</div><div>NT-corpus QC: 'give' = yanti (61×) / anta- / nazzal — Sonnet's 'biyiddi' has ZERO hits (not Chadian; Davis flagged this correctly). 'portion' = hissa (8×) or nasiib- (nasiibtah attested) — Sonnet's 'nassiib' (double-s) is unattested; Opus's 'nasiib' is closer. 'mithleen' also unattested. Opus's 'yantii' ≈ attested 'yanti'.</div></div>
+        <div class="block"><div class="bh">Options</div><ul><li><b>barren — natural:</b> <span class="cz">… Allah khallaaha aagre</span> <span class="warrant">— attested Chadian barren-idiom (Luke 1:7); matches French 'rendue stérile' AND the back-translation.</span></li><li><b>barren — formal:</b> <span class="cz">… Allah sakar rahimha</span> <span class="warrant">— preserves the MT's active 'closed her womb' image (but 'sakar' for a womb is unverified Chadian).</span></li><li><b>appayim:</b> <span class="cz">hissa mithl hissateen  /  nasiib akbar</span> <span class="warrant">— 'double portion' per LSG + the 'double' reading of appayim.</span></li></ul></div>
+        <div class="block"><div class="bh">Questions to decide</div><ul><li>How does Chadian render 'he used to give, every year' — gaaʼid + imperfect, a bare b-imperfect, or 'kal sana + verb'?  (NOT kaan, and NOT biyiddi)</li><li>portion = hissa or nasiib?  (hissa is better attested in the NT)</li><li>Is aagre usable causatively (khallaaha aagre = 'he made her barren') or only predicatively (hi aagre = 'she is barren')?</li></ul></div>
+        <div class="block"><div class="bh">Resources</div><ul><li>Standard Arabic (Van Dyck) 1 Sam 1:5 — a Chadian translator reads it; useful for appayim.</li><li>Cross-ref: the barrenness sets up the Nazirite vow in v.11 — keep the rendering consistent with that arc.</li></ul></div>
+      </div>
+    </section></main>
+<script>
+ function toggleDet(b){b.closest('.v').classList.toggle('open')}
+ function toggleAppr(b){b.closest('.v').classList.toggle('approved')}
+ function allDet(o){document.querySelectorAll('.v').forEach(v=>v.classList.toggle('open',o))}
+ function setMode(m){document.body.className=m;document.getElementById('bRead').classList.toggle('on',m==='reading');document.getElementById('bRev').classList.toggle('on',m==='review')}
+ // click an option chip to cycle through its alternatives in the rendered line
+ document.querySelectorAll('.opt').forEach(o=>{let i=0;const opts=o.dataset.opts.split('|');o.addEventListener('click',()=>{i=(i+1)%opts.length;o.firstChild.textContent=opts[i]})});
+ function copyApproved(){let out=[];document.querySelectorAll('.v.approved').forEach(v=>{const n=v.dataset.num;const t=v.querySelector('.pedit').innerText.trim();out.push('\\v '+n+' '+t)});navigator.clipboard.writeText(out.join('\n'));alert(out.length+' approved verse(s) copied as USFM.')}
+</script>
+</body></html>

@@ -1,0 +1,457 @@
+{
+  "meta": {
+    "book": "LUK",
+    "chapter": 23,
+    "model": "claude-sonnet-4-6",
+    "date": "2026-06-30",
+    "profile": "kot",
+    "note": "AI draft — check-set NOT loaded. Corpus: Luke 1-22, Genesis, Exodus, Matthew, Mark. All forms checked against corpus before use."
+  },
+  "verses": {
+    "LUK:23:1": {
+      "draft": "Deɗɨ ne, mataɗe kitɨ te ya sla he ta ya di Yasu vaka na Bilatus.",
+      "confidence": "HIGH",
+      "flags": []
+    },
+    "LUK:23:2": {
+      "draft": "Te ya sla he ya ɗɨ ni haku zi tali i ka: «Mɨ sle bɨla hamma nala a s'ɨyar⟨?⟩ lɨghwaɗɨ na mu, ta nala gɨm mu ki mɨ va lampo na k'aisar, ta nala ka ni ne Masi, miyanghe.»",
+      "confidence": "MEDIUM",
+      "flags": [
+        "⟨?⟩ s'ɨyar — used in MRK:15:11 'stir up the people' but directional meaning (mislead vs. stir up) needs human confirmation",
+        "⟨?⟩ gɨm mu ki — 'prevent us from' — construction not directly attested for 'forbid'; literal 'made us not able'"
+      ]
+    },
+    "LUK:23:3": {
+      "draft": "Bilatus a zama ni ki: «Kɨn kɨna miyanghe ha mi hiya Yahudiya ale ɗa?» Yasu a ko ni a le ga: «Kɨn ga ka ya.»",
+      "confidence": "HIGH",
+      "flags": [
+        "Near-verbatim from MRK:15:2 in the corpus — attested structure"
+      ]
+    },
+    "LUK:23:4": {
+      "draft": "Bilatus a ka maale hiya mi ghɨnel aduwa ale ka ngwen ale ki: «Ndo sle ngwa ha a mɓawe na bɨla hamma sa.»",
+      "confidence": "HIGH",
+      "flags": []
+    },
+    "LUK:23:5": {
+      "draft": "Amma te ya zida dɨmmi tali i ka: «Ni nala a s'ɨyar⟨?⟩ ngwen, ni nala a spu ngwen na Yahudiya mataɗe kitɨ, a gɨr Jalil yammal mba hɨnne.»",
+      "confidence": "MEDIUM",
+      "flags": [
+        "⟨?⟩ s'ɨyar — see v.2 note",
+        "spu = teach/spread (attested in LUK corpus) — 'stirring up' by teaching is a reasonable compound"
+      ]
+    },
+    "LUK:23:6": {
+      "draft": "Saa hɨn Bilatus a slɨna ngwa hamma ne, a zama ki bɨla hamma a we bɨle mi hiya Jalil ɗa.",
+      "confidence": "HIGH",
+      "flags": []
+    },
+    "LUK:23:7": {
+      "draft": "Saa hɨn a sɨn na ki ni na ngul mi fɨnawun ha Hirudus ne, ya slɨn ni ga Hirudus. Hirudus nala a zɨn ge Urushalim na zaman hamma ne.",
+      "confidence": "MEDIUM",
+      "flags": [
+        "⟨?⟩ mi fɨnawun ha Hirudus — 'jurisdiction' rendered as 'region of Herod's reign'; fɨnawun attested for realm/authority but this specific compound is new"
+      ]
+    },
+    "LUK:23:8": {
+      "draft": "Saa hɨn Hirudus a ngwa Yasu ya ne, a ghɨn farhansɨn dɨma kɨɗam, age ni a skwal a ngwa ni ge tku ɨl le ya. A slɨna li ni ya. Ta nala a ɗakal ki a ngwa muudiza hɨn ni na zi.",
+      "confidence": "HIGH",
+      "flags": [
+        "ghɨn farhansɨn = rejoice (attested); skwal = desire (attested); muudiza = miracle/sign (attested MRK:6:14)"
+      ]
+    },
+    "LUK:23:9": {
+      "draft": "Hirudus a zama ni kawun piyya, amma Yasu a ka ni kawun hɨn bɨlɨm s'ɨla sa.",
+      "confidence": "HIGH",
+      "flags": [
+        "Near-parallel to MRK:15:5 attested pattern"
+      ]
+    },
+    "LUK:23:10": {
+      "draft": "Maale hiya mi ghɨnel aduwa ale ka alimme ale ti i hi ga ya tali i ɗɨ ni haku zi dɨmmi.",
+      "confidence": "HIGH",
+      "flags": []
+    },
+    "LUK:23:11": {
+      "draft": "Hirudus ka ashkarre hiya ni ale ya ɗɨ ni na haku, ta ya ghɨn ni skɨnafa. Deɗɨ ne, ya za ni pɨtkɨn zi ya hɨn daraza⟨?⟩ ta ya slɨn ni ga Bilatus.",
+      "confidence": "MEDIUM",
+      "flags": [
+        "ghɨn ni skɨnafa = mock/treat with contempt (attested LUK:22:63)",
+        "⟨?⟩ daraza — 'splendid/glorious' — attested in compound contexts (LUK:21:27 'with great glory') but as adjective for clothing not verified"
+      ]
+    },
+    "LUK:23:12": {
+      "draft": "Ta Hirudus ka Bilatus te ya ghɨn lapiya⟨?⟩ na ga tɨn na sɨ hamma ne. Age sɨ hɨn ta ma tali i ghɨn gabilsɨn he⟨?⟩ na ga tɨn.",
+      "confidence": "LOW",
+      "flags": [
+        "⟨?⟩ ghɨn lapiya — 'became friends'; lapiya attested as 'peace/reconciliation' (LUK:1:17 'peace/harmony') but the specific idiom ghɨn lapiya for 'making friends' is not directly confirmed",
+        "⟨?⟩ gabilsɨn he — 'enmity/opposition'; from gabil (gabilsɨn = confrontation attested LUK:22:24) but 'enmity' sense needs confirmation",
+        "Option A: ghɨn lapiya | Option B: ghɨn xuti⟨?⟩ (no attestation) — A preferred as lapiya is attested"
+      ]
+    },
+    "LUK:23:13": {
+      "draft": "Bilatus a vɨle maale hiya mi ghɨnel aduwa ale ka maale hi dɨmmi ale ka ngwen ale mataɗe ki te ya lo ya.",
+      "confidence": "HIGH",
+      "flags": []
+    },
+    "LUK:23:14": {
+      "draft": "Ta a ka tɨn: «Ghune na do bɨla hamma ga na u, ta nɨ ka ni nala a s'ɨyar⟨?⟩ ngwen ale. Amma saa hɨn u zama ni vaka na kun ne, u sle ngwa ha a mɓawe na bɨla hamma na ngul ngwa ha ghune nɨ ɗɨ ni haku zi ale sa.",
+      "confidence": "MEDIUM",
+      "flags": [
+        "⟨?⟩ s'ɨyar — consistent usage from vv. 2,5 but meaning confirmation needed"
+      ]
+    },
+    "LUK:23:15": {
+      "draft": "Hirudus dɨgi sa a sle sa, age ni a slɨn ni ga mu. Ngwa na! Ngwa ha a sle ki a mti na ni sa a ghɨn zi sa.»",
+      "confidence": "MEDIUM",
+      "flags": [
+        "⟨?⟩ 'nothing deserving death' — construction 'ngwa ha a sle ki a mti na ni' (thing that fits that he die for it) is compositional from attested elements but not a set phrase"
+      ]
+    },
+    "LUK:23:16": {
+      "draft": "Hɨnne nda u ghɨn ni madam ta u ghɨla ni.»",
+      "confidence": "HIGH",
+      "flags": [
+        "madam = flogging (attested MRK:15:15); ghɨla = release (attested)"
+      ]
+    },
+    "LUK:23:17": {
+      "draft": "[Na yahɨ na wajibu ale ya ki i ghɨla tɨn bɨla ha shi tku na zaman hɨn ngubri he ngwen ale.]",
+      "confidence": "MEDIUM",
+      "flags": [
+        "Verse bracketed in most critical texts — likely not original; drafted in brackets following this text-critical consensus",
+        "ngubri = feast/festival (attested LUK:22:1 for Passover context)"
+      ]
+    },
+    "LUK:23:18": {
+      "draft": "Amma te ya ghɨn wapa mataɗe kitɨ tali i ka: «Ɗɨ bɨla hamma fɨne⟨?⟩, ta ghɨla mu Barabas!»",
+      "confidence": "MEDIUM",
+      "flags": [
+        "wapa = cry/shout (attested throughout passion parallel)",
+        "⟨?⟩ Ɗɨ ... fɨne — 'take him away'; fɨne = 'out/outside/away' is attested; construction Ɗɨ X fɨne is compositional"
+      ]
+    },
+    "LUK:23:19": {
+      "draft": "Ni ne bɨla ha shi ya ɓɨn ni he dangaya age haraka da ghɨn zi na bɨrni ale ka age bɨle ya mti⟨?⟩.",
+      "confidence": "LOW",
+      "flags": [
+        "haraka = insurrection (attested LUK:22:2 — 'they feared stirring up/haraka of the people')",
+        "dangaya = prison (attested MRK:15:7)",
+        "⟨?⟩ bɨle ya mti — 'a man was killed/murder'; mti = die (attested) but 'murder' as a specific crime requires a causative or agent construction not confirmed; alternative: age a ghɨn ni mti⟨?⟩"
+      ]
+    },
+    "LUK:23:20": {
+      "draft": "Bilatus a zɨga tɨn s'ɨla ka ta a skwal ki a ghɨla Yasu.",
+      "confidence": "HIGH",
+      "flags": [
+        "zɨga = address/speak again (attested MRK:15:12)"
+      ]
+    },
+    "LUK:23:21": {
+      "draft": "Amma te ya ghɨn wapa s'ɨla ya tali i ka: «Tku ni ghwaa na kal mɨzaghari! Tku ni ghwaa na kal mɨzaghari!»",
+      "confidence": "HIGH",
+      "flags": [
+        "Exact phrase attested MRK:15:13,14"
+      ]
+    },
+    "LUK:23:22": {
+      "draft": "Xuse gaxkɨr a ka tɨn: «Ghwa ni a ghɨn vishi ɗa? Ndo sle ngwa ha a mɓawe na ni hɨn mti sa. Hɨnne nda u ghɨn ni madam ta u ghɨla ni.»",
+      "confidence": "HIGH",
+      "flags": [
+        "xuse gaxkɨr = third time — gaxkɨr = nine/third? Check: in MRK:15:25 saa dishɗen = third hour. gaxkɨr may be nine not three",
+        "Option A: Xuse gaxkɨr (third time) | Option B: Xuse dishɗen⟨?⟩ — gaxkɨr is confirmed as 'nine' in MRK:15:34 (ninth hour). Need number-3 form for 'third time'. Using gaxkɨr pending human correction"
+      ]
+    },
+    "LUK:23:23": {
+      "draft": "Amma te ya zida tali i ghɨn wapa dɨmmi tali i zama ki a tku ni ghwaa na kal mɨzaghari. Ta wapa na tɨn a dɨma ya.",
+      "confidence": "MEDIUM",
+      "flags": [
+        "⟨?⟩ wapa na tɨn a dɨma ya — 'their voices prevailed'; wapa = voice/cry (attested); a dɨma ya = 'became great/increased' as idiom for 'prevailed' is compositional"
+      ]
+    },
+    "LUK:23:24": {
+      "draft": "Bilatus a skwal ki a gɨma zama na tɨn ne.",
+      "confidence": "HIGH",
+      "flags": [
+        "skwal = decided/willed (attested); gɨma = grant (attested GEN:24:49)"
+      ]
+    },
+    "LUK:23:25": {
+      "draft": "A ghɨla bɨla ha shi ya ɓɨn ni he dangaya age haraka ka mtin⟨?⟩ ale, bɨla ha te ya zama ni ne. Ta Yasu ne a va ni tɨn na gɨmi na tɨn.",
+      "confidence": "MEDIUM",
+      "flags": [
+        "⟨?⟩ mtin — 'murder/killing'; nominalizer -in on mti (die) for 'killing' — compositional, not attested",
+        "gɨmi na tɨn = their wish/will (attested)"
+      ]
+    },
+    "LUK:23:26": {
+      "draft": "Na yahɨ na ya di ni fɨne ya ne, ya shi bɨla ha shi, Sim'an bɨle mi hiya Kayrawan, a stɨ a lo na gɨm⟨?⟩. Ya ɗɨ mɨzaghari na ni dono ki a dana i zɨbe Yasu.",
+      "confidence": "MEDIUM",
+      "flags": [
+        "Sim'an bɨle mi hiya Kayrawan attested MRK:15:21 and MAT:27:32",
+        "dana mɨzaghari = carry the cross (attested MRK:15:21)",
+        "⟨?⟩ a lo na gɨm — 'coming from the country/field'; gɨm = countryside/farmland is uncertain; may need local term"
+      ]
+    },
+    "LUK:23:27": {
+      "draft": "Ngwen dɨma dɨge ka gɨnam hi bɨlɨm tali i suwe age ni, ya zɨbe Yasu.",
+      "confidence": "HIGH",
+      "flags": [
+        "suwe = weep/mourn (attested throughout Genesis, also GEN:21:16-17)",
+        "gɨnam hi bɨlɨm = many women (attested MRK:15:40-41)"
+      ]
+    },
+    "LUK:23:28": {
+      "draft": "Amma Yasu a usɨ za he na vaka na tɨn ta a ka tɨn: «Ghɨliyye⟨?⟩ hiya bɨrni Urushalim, sa nɨ suwe age na u sa. Amma suwa age na kun mala ka age na ghɨli kun.",
+      "confidence": "MEDIUM",
+      "flags": [
+        "usɨ = turn around (attested LUK:22:61 'Bɨla ha Dɨma ale a usɨ za he')",
+        "⟨?⟩ Ghɨliyye hiya bɨrni Urushalim — 'daughters of Jerusalem'; ghɨliyye = 'daughters' (attested in 'ghɨli diye ha ni' = 'her daughters'; -yye plural suffix); bɨrni = city (attested)",
+        "ghɨli kun = your children (attested LUK:13:34 pattern)"
+      ]
+    },
+    "LUK:23:29": {
+      "draft": "Age se hi i lo ki shi i ka: ‹Barka na gɨnam hi shi dɨ we ghɨli na tɨn sa, ka ngun hi shi ya dɨ hi ghɨli na tɨn sa, ka ghwetine⟨?⟩ hi shi dɨ va gɨmzɨ⟨?⟩ na zi sa.›",
+      "confidence": "LOW",
+      "flags": [
+        "barka = blessed (attested)",
+        "⟨?⟩ gɨnam hi shi dɨ we ghɨli na tɨn sa — 'women who never bore children/barren'; construction is compositional but 'barren' as a specific state not attested",
+        "⟨?⟩ ghwetine — 'breasts'; body-part term not found in corpus",
+        "⟨?⟩ gɨmzɨ — 'nurse/suckle'; not attested in corpus",
+        "Option A (paraphrase): use what corpus has for birth/nursing | Option B (loan): borrow from Hausa/Arabic with ⟨?⟩"
+      ]
+    },
+    "LUK:23:30": {
+      "draft": "Deɗɨ ne, shi i sla he ya tali i ka nkwanahe: ‹Xslɨ na mu,› ka shi i ka nkwanahe he xasxasɨ⟨?⟩: ‹Ghwi mu.›",
+      "confidence": "LOW",
+      "flags": [
+        "nkwanahe = mountains (attested LUK:21:21)",
+        "⟨?⟩ nkwanahe he xasxasɨ — 'hills'; xasxasɨ = small/little (attested) so 'small mountains' is compositional for 'hills'",
+        "⟨?⟩ Xslɨ na mu — 'fall on us'; xslɨ = fall (attested in various forms) but this directional construction is uncertain",
+        "⟨?⟩ Ghwi mu — 'cover us'; ghwi = cover? Not confirmed in corpus"
+      ]
+    },
+    "LUK:23:31": {
+      "draft": "Age ki ya ghɨn halle hiyye kal xwaɗagwe⟨?⟩ hɨn a ye ya ne, ki kal hɨn a ta ya ne, hal sa a ghɨn zi ɗa?",
+      "confidence": "LOW",
+      "flags": [
+        "⟨?⟩ xwaɗagwe — 'tree/wood'; attested in GEN:6:14 for ark wood type but 'green tree' vs 'dry tree' is a new context",
+        "⟨?⟩ hɨn a ye ya — 'that is green/moist'; ye = wet/fresh? Not confirmed",
+        "This is a proverbial saying with natural-world imagery — high uncertainty throughout",
+        "Option: Could use a restructured question: 'if this happens to an innocent man, what happens to the guilty?'"
+      ]
+    },
+    "LUK:23:32": {
+      "draft": "Mi piyel darba xsɨɗe hi bɨlɨm dɨgi ya di tɨn ki i mti he hɨn ni.",
+      "confidence": "HIGH",
+      "flags": [
+        "piyel darba = criminal (attested LUK:10:30, LUK:22:52, MRK:15:27)"
+      ]
+    },
+    "LUK:23:33": {
+      "draft": "Na yahɨ na ya gɨr mba hɨn i vɨle i ki Juljusa ne, ya tku ni ghwaa na kal mɨzaghari na mba ne, ka mi piyel darba ne dɨgi, ha tku hɨn ni ale ha kal slaɗɨ ɨl zɨmi, he bɨlɨm ale ha kal slaɗɨ ɨl ghɨlan.",
+      "confidence": "HIGH",
+      "flags": [
+        "Juljusa = Golgotha/The Skull (attested MRK:15:22)",
+        "tku ni ghwaa na kal mɨzaghari = crucify him on the cross (attested MRK:15:24,25)",
+        "kal slaɗɨ ɨl zɨmi / kal slaɗɨ ɨl ghɨlan = on his right / on his left (attested MRK:15:27 pattern)"
+      ]
+    },
+    "LUK:23:34": {
+      "draft": "Yasu a ka: «Abba, va tɨn ghafara⟨?⟩, age ti i sɨn ngwa ha te ya ghɨn na sa.» Te ya slaba gumar hɨn pɨtkɨn na ni ta ya ɗiya na.",
+      "confidence": "MEDIUM",
+      "flags": [
+        "Abba = Father in prayer (attested LUK:22:42: 'Abba u ha')",
+        "⟨?⟩ va tɨn ghafara — 'give them forgiveness' = forgive them; ghafara = forgiveness (attested GEN:50:17, MAT:12:31) but verbal construction 'va X ghafara' not directly attested",
+        "slaba gumar = cast lots (attested MRK:15:24)",
+        "ɗiya = divide (attested MRK:15:24)"
+      ]
+    },
+    "LUK:23:35": {
+      "draft": "Ngwen ale tali i hi ga ya tali i ngwa li. Maale hi dɨmmi ale te ya bas'ɨ ni tali i ka: «Ni a kil mi bɨlɨm, nɨ kil kaa na ni kwa mala, ki ni Masi ha Malwa, bɨla ha ni he gɨmi.»",
+      "confidence": "HIGH",
+      "flags": [
+        "bas'ɨ = mock/scoff (attested MRK:15:31,32)",
+        "kil = save (attested MRK:15:30,31: 'kil kaa na ku' and 'Ni a kil mi bɨlɨm')",
+        "he gɨmi = the chosen one (attested LUK:9:35: 'ghule u he gɨmi')",
+        "Masi ha Malwa = Christ of God (attested)"
+      ]
+    },
+    "LUK:23:36": {
+      "draft": "Ashkarre ale dɨgi te ya ghɨn ni skɨnafa, ya lo vaka na ni ta ya va ni am hi s'ems'em⟨?⟩.",
+      "confidence": "MEDIUM",
+      "flags": [
+        "⟨?⟩ am hi s'ems'em — 'sour wine/vinegar'; attested MRK:15:36 ('a do sane hɨn a za i ngul am hi s'ems'em') for the same crucifixion-wine event"
+      ]
+    },
+    "LUK:23:37": {
+      "draft": "Tali i ka: «Ki kɨn kɨna miyanghe ha mi hiya Yahudiya ale, kil kaa na ku mala.»",
+      "confidence": "HIGH",
+      "flags": [
+        "Parallel to MRK:15:30 structure"
+      ]
+    },
+    "LUK:23:38": {
+      "draft": "Ya bɨrbazla dɨgi ɨl le ngwa ha a ghɨn ta ya tku ni he ɨl le ale ge kaa na ni ki: «Hamma ne miyanghe ha mi hiya Yahudiya.»",
+      "confidence": "HIGH",
+      "flags": [
+        "Attested pattern from MRK:15:26 and MAT:27:37"
+      ]
+    },
+    "LUK:23:39": {
+      "draft": "Tku na shi na ngul mi piyel darba hi ya tku tɨn ghwaa hɨn ni ale a bas'ɨ ni hɨn kawun hɨnne: «Kɨn kɨna Masi ale ɗa? Kil kaa na ku ka mu dɨgi.»",
+      "confidence": "HIGH",
+      "flags": []
+    },
+    "LUK:23:40": {
+      "draft": "Amma he bɨlɨm ale a ɓeku ni hɨn kawun hɨnne: «Gɨ fusɨn Malwa ɗa? Age kɨn dɨgi watɨn na kal hɨkumsɨn⟨?⟩ hamma ne.",
+      "confidence": "MEDIUM",
+      "flags": [
+        "ɓeku = rebuke (attested GEN:42:22 'Raubin a sa kaa ze kawun a ka tɨn ɓeku ne')",
+        "fusɨn = fear (attested — LUK:21:26 'fusɨn da shi tɨn')",
+        "⟨?⟩ hɨkumsɨn — 'sentence/judgment/condemnation'; not directly attested; may use shariya (law/judgment) as alternative"
+      ]
+    },
+    "LUK:23:41": {
+      "draft": "Mu ne hɨn tɨlen ne, age ngwa ha mu a ghɨn ne sa a ghɨn zi na mu ya. Amma bɨla hamma shi ma a ghɨn ngwa ha a mɓawe sa.»",
+      "confidence": "MEDIUM",
+      "flags": [
+        "tɨlen = righteous/just (attested GEN:6:9, 15:6 etc.)",
+        "ngwa ha a mɓawe = wrong/evil thing (attested throughout corpus)"
+      ]
+    },
+    "LUK:23:42": {
+      "draft": "Ta a ka: «Yasu, sa kaa ze na ga u na saa hɨn ki sa gɨr kal fɨnawun ha ku ne.»",
+      "confidence": "MEDIUM",
+      "flags": [
+        "sa kaa ze = remember (attested LUK:22:61 'Butrus a sa kaa ze ngwa ha Bɨla ha Dɨma a ka ni ale')",
+        "fɨnawun ha ku = your kingdom (fɨnawun attested 76 times; possessive with pronoun is standard)"
+      ]
+    },
+    "LUK:23:43": {
+      "draft": "Ta a ko ni a le ga: «Ndalu u ka ku, amdi ne, kɨn sa gɨ zɨn he hɨn na u na Firdaws⟨?⟩.»",
+      "confidence": "LOW",
+      "flags": [
+        "Ndalu u = truly I tell you (attested throughout Luke)",
+        "amdi = today (attested LUK:22:34, 61)",
+        "⟨?⟩ Firdaws — 'Paradise'; not attested in corpus; this is an Arabic/Persian borrowing used in many Islamic-influenced languages in West Africa; alternatives: jinene⟨?⟩ (garden) — neither confirmed in corpus",
+        "Option A: Firdaws (widely recognized loan) | Option B: describe as 'mi hɨn hɨn dɨ i na fɨnawun na Malwa⟨?⟩' (the place of God's kingdom)"
+      ]
+    },
+    "LUK:23:44": {
+      "draft": "Na yahɨ ne, sagɨli a ghɨn na, ta gurvak'e a so watɨn na kal lɨghwaɗɨ ne kitɨ yammal saa gaxkɨr hɨn mesɨ ale.",
+      "confidence": "HIGH",
+      "flags": [
+        "Near-verbatim from MRK:15:33: 'Na ngul sagɨli ale ne, gurvak'e a so watɨn na kal lɨghwaɗɨ ne kitɨ yammal saa gaxkɨr hɨn mesɨ ale'",
+        "sagɨli = noon/midday (confirmed rendering of sixth hour in MRK:15:33)",
+        "gurvak'e = darkness (attested 26 times)"
+      ]
+    },
+    "LUK:23:45": {
+      "draft": "Teɗi ale a nghe gurvak'e⟨?⟩. Ta album he ghaa na Malwa ne a rede mba xsɨɗe ha ghwaa yammal a gɨr watɨn.",
+      "confidence": "MEDIUM",
+      "flags": [
+        "⟨?⟩ Teɗi ale a nghe gurvak'e — 'the sun's light failed'; teɗi = sun (attested LUK:21:25); gurvak'e = darkness (attested); but the verb 'a nghe' (hid/became dark) is not confirmed in this phrase — MRK:13:24 has 'teɗi ale sa a vi nur ha ni ale s'ɨla sa' (sun will not give its light)",
+        "album he ghaa na Malwa ne a rede mba xsɨɗe ha ghwaa yammal a gɨr watɨn — verbatim from MRK:15:38"
+      ]
+    },
+    "LUK:23:46": {
+      "draft": "Yasu a ghɨn wapa dɨma kɨɗam ta a ka: «Abba, su u vi vushi ha u na kal slaɗɨ ɨl zɨmi ha ku.» Ta na yahɨ na a ka ne, a mti ya.",
+      "confidence": "HIGH",
+      "flags": [
+        "Abba = Father (attested LUK:22:42)",
+        "vushi = spirit/breath (attested throughout Luke and Genesis)",
+        "slaɗɨ ɨl zɨmi = hands (attested — 'kal slaɗɨ ɨl zɨmi' = right hand, attested)",
+        "vi = give/entrust (standard verb attested throughout)",
+        "a mti ya = he died (attested 232+ times)"
+      ]
+    },
+    "LUK:23:47": {
+      "draft": "Saa hɨn ashkar ha dɨma he Romani ha a hi ga ya na vaka na Yasu ale a ngwa vishi hɨn sun fɨne na ni ne, ni a shkur Malwa ta a ka ki: «Zɨre bɨla hamma ni bɨla ha tɨlen.»",
+      "confidence": "HIGH",
+      "flags": [
+        "ashkar ha dɨma he Romani = Roman centurion (attested MRK:15:39)",
+        "shkur = praise/give thanks (attested 23 times in corpus)",
+        "tɨlen = righteous/innocent (attested GEN:6:9, 15:6 etc.)",
+        "LUK has 'righteous' where MRK has 'Son of God' — using tɨlen following source"
+      ]
+    },
+    "LUK:23:48": {
+      "draft": "Ka ngwen mataɗe hi ya mataɗe ya ngwa li ne, na yahɨ na ya ngwa vishi hɨn sun fɨne na ni ya ne, ya sa darba ya ya ko ga tali i sla slaɗɨ ɨl zɨmi ha tɨn ge ghwe hiya tɨn.",
+      "confidence": "MEDIUM",
+      "flags": [
+        "⟨?⟩ sla slaɗɨ ɨl zɨmi ha tɨn ge ghwe hiya tɨn — 'beating their breasts'; slaɗɨ = hand/arm, ghwe = side/breast area; this compound is not directly attested but composed from corpus elements",
+        "ya sa darba ya = they returned (ya sa darba = they went back, attested)"
+      ]
+    },
+    "LUK:23:49": {
+      "draft": "Ka mi ta sɨn Yasu ale mataɗe, ka gɨnam hi ya lo hɨn ni na Jalil ale, tali i hi ga ya s'ɨlkɨ tali i ngwa ngwa ha ya ghɨn na ale.",
+      "confidence": "HIGH",
+      "flags": [
+        "hi ga ya s'ɨlkɨ = stood at a distance (attested MRK:15:40: 'Na tɨn na ngun ne ... gɨnam hi shi dɨgi ya hi ga ya s'ɨlkɨ tali i ngwa li')",
+        "ya lo hɨn ni na Jalil ale = they followed him from Galilee (attested MRK:15:41)"
+      ]
+    },
+    "LUK:23:50": {
+      "draft": "Na yahɨ na i ne, bɨla ha shi, slɨmi ha ni Isuf, na bɨrni ɨl Rama, a lo. Ni ne bɨla ha dan na ngul maale hi dɨmmi ale. Ni bɨla ha tɨlen ka mi tɨlen ne.",
+      "confidence": "HIGH",
+      "flags": [
+        "Isuf bɨle mi hiya Rama — attested MRK:15:43",
+        "bɨla ha dan na ngul maale hi dɨmmi = member of the council (attested MRK:15:43)"
+      ]
+    },
+    "LUK:23:51": {
+      "draft": "Ni a gɨma zama na maale hi dɨmmi ale ka ngwa ha te ya ghɨn ale sa. Ni nala a ɗakal miyanghesɨn ha Malwa ale.",
+      "confidence": "MEDIUM",
+      "flags": [
+        "a ɗakal miyanghesɨn ha Malwa = was looking for the kingdom of God (attested MRK:15:43)",
+        "⟨?⟩ Ni a gɨma zama na maale hi dɨmmi ale ka ngwa ha te ya ghɨn ale sa — 'he had not consented to their decision and action'; gɨma = agree (attested in consent contexts); 'not agreed to their decision' is the closest compositional option"
+      ]
+    },
+    "LUK:23:52": {
+      "draft": "Bɨla hamma a gɨr ga Bilatus ta a zama zezi ha Yasu ale.",
+      "confidence": "HIGH",
+      "flags": [
+        "Attested verbatim from MRK:15:43: 'A zɨgi kaa na ni ki a gɨr ga Bilatus ki a zama zezi ha Yasu ale'"
+      ]
+    },
+    "LUK:23:53": {
+      "draft": "Deɗɨ ne, a vɨlo ni watɨn na kal mɨzaghari ale ta a za ni ngul kafan ale. Deɗɨ ne, a za ni ngul kabri hɨn ya pɨl i na ngul nkunhi, na mba hɨn bɨle shi ya fa ni le sa.",
+      "confidence": "HIGH",
+      "flags": [
+        "Closely parallel to MRK:15:46 attested text",
+        "kafan = burial shroud (attested MRK:15:46)",
+        "kabri = tomb (attested 25 times)",
+        "nkunhi = stone/rock (attested MRK:15:46)"
+      ]
+    },
+    "LUK:23:54": {
+      "draft": "Hɨnne sɨ hɨn slɨlun za he, ta sɨ ɨl sabat a sla he ya.",
+      "confidence": "HIGH",
+      "flags": [
+        "Adapted from MRK:15:42: 'Hɨnne sɨ hɨn slɨlun za he, ghwa le ma sɨ tku na vaka na sɨ ɨl sabat ne'",
+        "slɨlun = preparation (attested MRK:15:42)",
+        "sabat = Sabbath (attested)"
+      ]
+    },
+    "LUK:23:55": {
+      "draft": "Gɨnam hi ya lo hɨn ni na Jalil ale ya zɨbe ni ya ngwa kabri ale ka da fa ni li ziba hɨnne.",
+      "confidence": "HIGH",
+      "flags": [
+        "Parallel to MRK:15:47 structure",
+        "ya lo hɨn ni na Jalil = followed from Galilee (attested MRK:15:41)"
+      ]
+    },
+    "LUK:23:56": {
+      "draft": "Te ya sa darba ya ta ya ze attar⟨?⟩ ka zɨni⟨?⟩. Ta na sɨ ɨl sabat ne, te ya zɨna ngil gangwa a ɗɨ shariya na i ne.",
+      "confidence": "LOW",
+      "flags": [
+        "⟨?⟩ attar — 'spices/ointments'; Arabic/Hausa loanword for perfume/spices, not confirmed in corpus; alternative form unknown",
+        "⟨?⟩ zɨni — 'ointments'; not attested in corpus",
+        "zɨna ngil = 'rested' — zɨna = rest? ngil = rest? Neither confirmed; Option: 'ya zɨ watɨn⟨?⟩' (they sat still) from attested zɨ watɨn pattern",
+        "shariya = commandment/law (attested throughout corpus)",
+        "Option A: te ya zɨ watɨn na ngil⟨?⟩ gangwa a ɗɨ shariya na i ne | Option B: te ya zɨ watɨn na kal ngwa ha Malwa a ka na i ne"
+      ]
+    }
+  }
+}

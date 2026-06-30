@@ -2,70 +2,524 @@
   "language": "Algerian Darija",
   "iso639_3": "arq",
   "script": "Arabic script (Algerian Darija orthography)",
-  "lwc": ["Modern Standard Arabic", "French"],
+  "lwc": [
+    "Modern Standard Arabic",
+    "French"
+  ],
   "divine_name": "الله",
-
   "paths": {
     "corpus": "corpus/arq-corpus.json",
     "lexicon": "references/lexicon.json",
     "reference_pack": "references/"
   },
-
   "suffixes": [],
   "borrowings": {},
   "key_terms_anchor": {},
   "core_word_pattern": "^[\\p{L}'ʼ]+$",
-
   "_comment": "L0 register linter for Algerian Darija. The error-severity rules are MSA function words / case-marking that essentially never occur in genuine spoken Darija — high precision. warn-severity rules are lexical/register tells harvested from native-speaker corrections (Little Women ch01, GitHub #5-21) that are usually but not always wrong, so a human confirms. No lexicon/corpus is loaded — these rules are pure orthographic pattern checks and cost zero inference.",
-
   "linter_rules": [
-    { "id": "MSA-lakin",      "pattern": "لكن",   "flags": "g", "severity": "error", "message": "MSA لكن — use بصح" },
-    { "id": "MSA-lianna",     "pattern": "لأن",   "flags": "g", "severity": "error", "message": "MSA لأنّ — use خاطَر (narrative) / حيت (explanatory)" },
-    { "id": "MSA-rubbama",    "pattern": "ربما",  "flags": "g", "severity": "error", "message": "MSA ربما — use بلاك / يمكن" },
-    { "id": "MSA-bianna",     "pattern": "بأن",   "flags": "g", "severity": "error", "message": "MSA بأنّ/بأن (complementizer) — use بلي" },
-    { "id": "MSA-alladhi",    "pattern": "الذي",  "flags": "g", "severity": "error", "message": "MSA الذي — use اللي" },
-    { "id": "MSA-allati",     "pattern": "التي",  "flags": "g", "severity": "error", "message": "MSA التي — use اللي" },
-    { "id": "MSA-alladhina",  "pattern": "الذين", "flags": "g", "severity": "error", "message": "MSA الذين — use اللي" },
-    { "id": "MSA-indama",     "pattern": "عندما", "flags": "g", "severity": "error", "message": "MSA عندما — use كي / ملّي" },
-    { "id": "MSA-haythu",     "pattern": "حيث",   "flags": "g", "severity": "error", "message": "MSA حيث — use وين / فين" },
-    { "id": "MSA-lidhalik",   "pattern": "لذلك",  "flags": "g", "severity": "error", "message": "MSA لذلك — use علا هاد / هكدا" },
-    { "id": "MSA-baynama",    "pattern": "بينما", "flags": "g", "severity": "error", "message": "MSA بينما — use كي / فاش" },
-    { "id": "MSA-sawfa",      "pattern": "سوف",   "flags": "g", "severity": "error", "message": "MSA سوف (future) — use رايح / غادي" },
-    { "id": "MSA-laysa",      "pattern": "ليس",   "flags": "g", "severity": "error", "message": "MSA ليس — use ماشي / ما...ش" },
-    { "id": "MSA-yajib",      "pattern": "يجب",   "flags": "g", "severity": "error", "message": "MSA يجب — use لازم" },
-    { "id": "MSA-alaan",      "pattern": "الآن",  "flags": "g", "severity": "error", "message": "MSA الآن — use درك / دابا" },
-    { "id": "MSA-faqat",      "pattern": "فقط",   "flags": "g", "severity": "error", "message": "MSA فقط — use برك / غير" },
-    { "id": "MSA-jiddan",     "pattern": "جدا",   "flags": "g", "severity": "error", "message": "MSA جداً/جدا — use بزّاف" },
-    { "id": "MSA-aydan",      "pattern": "أيضا",  "flags": "g", "severity": "error", "message": "MSA أيضاً/أيضا — use زادة / تاني" },
-    { "id": "MSA-kathiran",   "pattern": "كثيرا", "flags": "g", "severity": "error", "message": "MSA كثيراً/كثيرا — use بزّاف" },
-    { "id": "MSA-tanwin",     "pattern": "[ًٌٍ]",  "flags": "g", "severity": "warn",  "message": "MSA case-ending tanwin (ـً/ـٌ/ـٍ) — Darija has no case endings; drop it" },
-
-    { "id": "DZ-hadha",       "pattern": "هذا",   "flags": "g", "severity": "warn",  "message": "MSA هذا — use هاد / هادا" },
-    { "id": "DZ-hadhihi",     "pattern": "هذه",   "flags": "g", "severity": "warn",  "message": "MSA هذه — use هاد / هادي" },
-    { "id": "DZ-haoulaa",     "pattern": "هؤلاء", "flags": "g", "severity": "warn",  "message": "MSA هؤلاء — use هادو / هاذُم" },
-    { "id": "DZ-dhalika",     "pattern": "ذلك",   "flags": "g", "severity": "warn",  "message": "MSA ذلك — use هاداك / ذاك" },
-    { "id": "DZ-lahza",       "pattern": "لحظة",  "flags": "g", "severity": "warn",  "message": "written-register لحظة — use دقيقة / شويّة" },
-    { "id": "DZ-aljamia",     "pattern": "الجميع","flags": "g", "severity": "warn",  "message": "MSA الجميع — use الكل / گاع الناس / الناس كامل" },
-    { "id": "DZ-sajjada",     "pattern": "سجادة", "flags": "g", "severity": "warn",  "message": "MSA السجّادة (rug) — use الزربية" },
-    { "id": "DZ-mutaa",       "pattern": "المتعة","flags": "g", "severity": "warn",  "message": "literary المتعة — use الزهو / الفرفشة" },
-    { "id": "DZ-tawaqqaa",    "pattern": "توقّع|توقع", "flags": "g", "severity": "warn", "message": "MSA توقّع (expect) — use استنّى / ظنّ" },
-    { "id": "DZ-lahib",       "pattern": "لهيب",  "flags": "g", "severity": "warn",  "message": "written-register لهيب — use شعلة" },
-    { "id": "DZ-ibtasama",    "pattern": "ابتسم", "flags": "g", "severity": "warn",  "message": "MSA ابتسم — use تبسّم / ضحك شويّة" },
-    { "id": "DZ-nabra",       "pattern": "نبرة",  "flags": "g", "severity": "warn",  "message": "literary نبرة (tone) — use صوت / طريقة" },
-    { "id": "DZ-takallama",   "pattern": "تكلّم|تكلم", "flags": "g", "severity": "warn", "message": "MSA تكلّم — use هدر" },
-    { "id": "DZ-istataa",     "pattern": "يستطيع|استطاع", "flags": "g", "severity": "warn", "message": "MSA استطاع/يستطيع — use قدر / يقدر" },
-    { "id": "DZ-mutawwiqa",   "pattern": "متوقة|متوّقة", "flags": "g", "severity": "warn", "message": "odd/MSA متوقة (longing) — use متمنية / مشتاقة" },
-    { "id": "DZ-thawwes",     "pattern": "تحوّس|تحوس|يحوّس|نحوّس", "flags": "g", "severity": "warn", "message": "REVIEW تحوّس = rummage/wander/search — NOT 'look at'. If source means look/glance/examine, use تشوف/شاف. Recurs every chapter." },
-    { "id": "DZ-latin-script", "pattern": "[A-Za-z]{3,}", "flags": "g", "severity": "warn", "message": "REVIEW Latin-script token in Darija body — transliterate to Arabic script or render in Darija, UNLESS intentional (proper name, italicized title, deliberate dialogue code-switch)." },
-    { "id": "DZ-sarakh",      "pattern": "صرخ", "flags": "g", "severity": "warn", "message": "reviewer prefers عيّط over صرخ (shouted/cried out)" },
-    { "id": "DZ-zafar",       "pattern": "زفر", "flags": "g", "severity": "warn", "message": "reviewer prefers تنهّد/تنهيدة over زفر/زفرة (sighed)" },
-    { "id": "DZ-kaanna",      "pattern": "كأنّ|كأنه|كأنها", "flags": "g", "severity": "warn", "message": "MSA كأنّ — use كيما (as if)" },
-    { "id": "DZ-fustan",      "pattern": "فستان|فساتين", "flags": "g", "severity": "warn", "message": "reviewer prefers روبة/روبات over فستان/فساتين (dress)" },
-    { "id": "DZ-bilhaqiqa",   "pattern": "بالحقيقة", "flags": "g", "severity": "warn", "message": "reviewer prefers في الحقيقة over بالحقيقة" }
+    {
+      "id": "MSA-lakin",
+      "pattern": "لكن(?![\\u0600-\\u06FF])",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA لكن — use بصح"
+    },
+    {
+      "id": "MSA-lianna",
+      "pattern": "لأن(?![\\u0600-\\u06FF])",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA لأنّ — use خاطَر (narrative) / حيت (explanatory)"
+    },
+    {
+      "id": "MSA-rubbama",
+      "pattern": "ربما",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA ربما — use بلاك / يمكن"
+    },
+    {
+      "id": "MSA-bianna",
+      "pattern": "بأن(?![\\u0600-\\u06FF])",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA بأنّ/بأن (complementizer) — use بلي"
+    },
+    {
+      "id": "MSA-alladhi",
+      "pattern": "(?<![\\u0600-\\u06FF])الذي(?![\\u0600-\\u06FF])",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA الذي — use اللي"
+    },
+    {
+      "id": "MSA-allati",
+      "pattern": "(?<![\\u0600-\\u06FF])التي(?![\\u0600-\\u06FF])",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA التي — use اللي"
+    },
+    {
+      "id": "MSA-alladhina",
+      "pattern": "(?<![\\u0600-\\u06FF])الذين(?![\\u0600-\\u06FF])",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA الذين — use اللي"
+    },
+    {
+      "id": "MSA-indama",
+      "pattern": "عندما",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA عندما — use كي / ملّي"
+    },
+    {
+      "id": "MSA-haythu",
+      "pattern": "حيث",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA حيث — use وين / فين"
+    },
+    {
+      "id": "MSA-lidhalik",
+      "pattern": "لذلك",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA لذلك — use علا هاد / هكدا"
+    },
+    {
+      "id": "MSA-baynama",
+      "pattern": "بينما",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA بينما — use كي / فاش"
+    },
+    {
+      "id": "MSA-sawfa",
+      "pattern": "سوف",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA سوف (future) — use رايح / غادي"
+    },
+    {
+      "id": "MSA-laysa",
+      "pattern": "ليس",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA ليس — use ماشي / ما...ش"
+    },
+    {
+      "id": "MSA-yajib",
+      "pattern": "يجب",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA يجب — use لازم"
+    },
+    {
+      "id": "MSA-alaan",
+      "pattern": "الآن",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA الآن — use درك / دابا"
+    },
+    {
+      "id": "MSA-faqat",
+      "pattern": "فقط",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA فقط — use برك / غير"
+    },
+    {
+      "id": "MSA-jiddan",
+      "pattern": "جدا",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA جداً/جدا — use بزّاف"
+    },
+    {
+      "id": "MSA-aydan",
+      "pattern": "أيضا",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA أيضاً/أيضا — use زادة / تاني"
+    },
+    {
+      "id": "MSA-kathiran",
+      "pattern": "كثيرا",
+      "flags": "g",
+      "severity": "error",
+      "message": "MSA كثيراً/كثيرا — use بزّاف"
+    },
+    {
+      "id": "MSA-tanwin",
+      "pattern": "[ًٌٍ]",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA case-ending tanwin (ـً/ـٌ/ـٍ) — Darija has no case endings; drop it"
+    },
+    {
+      "id": "DZ-hadha",
+      "pattern": "هذا",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA هذا — use هاد / هادا"
+    },
+    {
+      "id": "DZ-hadhihi",
+      "pattern": "هذه",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA هذه — use هاد / هادي"
+    },
+    {
+      "id": "DZ-haoulaa",
+      "pattern": "هؤلاء",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA هؤلاء — use هادو / هاذُم"
+    },
+    {
+      "id": "DZ-dhalika",
+      "pattern": "ذلك",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA ذلك — use هاداك / ذاك"
+    },
+    {
+      "id": "DZ-lahza",
+      "pattern": "لحظة",
+      "flags": "g",
+      "severity": "warn",
+      "message": "written-register لحظة — use دقيقة / شويّة"
+    },
+    {
+      "id": "DZ-aljamia",
+      "pattern": "الجميع",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA الجميع — use الكل / گاع الناس / الناس كامل"
+    },
+    {
+      "id": "DZ-sajjada",
+      "pattern": "سجادة",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA السجّادة (rug) — use الزربية"
+    },
+    {
+      "id": "DZ-mutaa",
+      "pattern": "المتعة",
+      "flags": "g",
+      "severity": "warn",
+      "message": "literary المتعة — use الزهو / الفرفشة"
+    },
+    {
+      "id": "DZ-tawaqqaa",
+      "pattern": "توقّع|توقع",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA توقّع (expect) — use استنّى / ظنّ"
+    },
+    {
+      "id": "DZ-lahib",
+      "pattern": "لهيب",
+      "flags": "g",
+      "severity": "warn",
+      "message": "written-register لهيب — use شعلة"
+    },
+    {
+      "id": "DZ-ibtasama",
+      "pattern": "ابتسم",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA ابتسم — use تبسّم / ضحك شويّة"
+    },
+    {
+      "id": "DZ-nabra",
+      "pattern": "نبرة",
+      "flags": "g",
+      "severity": "warn",
+      "message": "literary نبرة (tone) — use صوت / طريقة"
+    },
+    {
+      "id": "DZ-takallama",
+      "pattern": "تكلّم|تكلم",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA تكلّم — use هدر"
+    },
+    {
+      "id": "DZ-istataa",
+      "pattern": "يستطيع|استطاع",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA استطاع/يستطيع — use قدر / يقدر"
+    },
+    {
+      "id": "DZ-mutawwiqa",
+      "pattern": "متوقة|متوّقة",
+      "flags": "g",
+      "severity": "warn",
+      "message": "odd/MSA متوقة (longing) — use متمنية / مشتاقة"
+    },
+    {
+      "id": "DZ-thawwes",
+      "pattern": "تحوّس|تحوس|يحوّس|نحوّس",
+      "flags": "g",
+      "severity": "warn",
+      "message": "REVIEW تحوّس = rummage/wander/search — NOT 'look at'. If source means look/glance/examine, use تشوف/شاف. Recurs every chapter."
+    },
+    {
+      "id": "DZ-latin-script",
+      "pattern": "[A-Za-z]{3,}",
+      "flags": "g",
+      "severity": "warn",
+      "message": "REVIEW Latin-script token in Darija body — transliterate to Arabic script or render in Darija, UNLESS intentional (proper name, italicized title, deliberate dialogue code-switch)."
+    },
+    {
+      "id": "DZ-sarakh",
+      "pattern": "صرخ",
+      "flags": "g",
+      "severity": "warn",
+      "message": "reviewer prefers عيّط over صرخ (shouted/cried out)"
+    },
+    {
+      "id": "DZ-zafar",
+      "pattern": "زفر",
+      "flags": "g",
+      "severity": "warn",
+      "message": "reviewer prefers تنهّد/تنهيدة over زفر/زفرة (sighed)"
+    },
+    {
+      "id": "DZ-kaanna",
+      "pattern": "كأنّ|كأنه|كأنها",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA كأنّ — use كيما (as if)"
+    },
+    {
+      "id": "DZ-fustan",
+      "pattern": "فستان|فساتين",
+      "flags": "g",
+      "severity": "warn",
+      "message": "reviewer prefers روبة/روبات over فستان/فساتين (dress)"
+    },
+    {
+      "id": "DZ-bilhaqiqa",
+      "pattern": "بالحقيقة",
+      "flags": "g",
+      "severity": "warn",
+      "message": "reviewer prefers في الحقيقة over بالحقيقة"
+    },
+    {
+      "id": "DZ-nahifa",
+      "pattern": "نحيف(ة|ين|ات)?",
+      "flags": "g",
+      "severity": "warn",
+      "message": "reviewer prefers رقيق(ة) over نحيف(ة) (thin/slender)"
+    },
+    {
+      "id": "DZ-kathif",
+      "pattern": "كثيف|الكثيف",
+      "flags": "g",
+      "severity": "warn",
+      "message": "reviewer prefers قاوي over كثيف (thick/dense, esp. hair)"
+    },
+    {
+      "id": "DZ-am-year",
+      "pattern": "عام\\b",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA عام (year) — use سنة in DZ"
+    },
+    {
+      "id": "DZ-mujalad",
+      "pattern": "مجعّد|مجعد",
+      "flags": "g",
+      "severity": "warn",
+      "message": "reviewer prefers بوكلي over مجعّد (curly hair)"
+    },
+    {
+      "id": "DZ-sababat",
+      "pattern": "صبّاطات|شبّاطات|صباطات|شباطات",
+      "flags": "g",
+      "severity": "warn",
+      "message": "reviewer uses بانتوفات for house slippers (شبّاطات = street shoes)"
+    },
+    {
+      "id": "DZ-manadir",
+      "pattern": "مناديل",
+      "flags": "g",
+      "severity": "warn",
+      "message": "reviewer prefers مشاور over مناديل (handkerchiefs)"
+    },
+    {
+      "id": "DZ-quffazat",
+      "pattern": "قفازات|قفّازات",
+      "flags": "g",
+      "severity": "warn",
+      "message": "reviewer prefers ليقووات over قفازات (gloves)"
+    },
+    {
+      "id": "DZ-kanun-fire",
+      "pattern": "الكانون",
+      "flags": "g",
+      "severity": "warn",
+      "message": "if meaning fireplace/hearth: reviewer uses الشميني — verify context"
+    },
+    {
+      "id": "DZ-misbah",
+      "pattern": "المصباح|مصباح",
+      "flags": "g",
+      "severity": "warn",
+      "message": "reviewer prefers الضوء over المصباح (lamp/light)"
+    },
+    {
+      "id": "DZ-tawila",
+      "pattern": "الطاولة|طاولة",
+      "flags": "g",
+      "severity": "warn",
+      "message": "reviewer uses الطابلة (DZ form of table)"
+    },
+    {
+      "id": "DZ-shantat",
+      "pattern": "الشنط|شنطة",
+      "flags": "g",
+      "severity": "warn",
+      "message": "شنطة = bag; for wrapped gifts use الكادو/الكادوات"
+    },
+    {
+      "id": "DZ-saidgroup",
+      "pattern": "السعيد\\b|سعيد\\b",
+      "flags": "g",
+      "severity": "warn",
+      "message": "reviewer prefers الفرحان over السعيد (happy) in descriptive DZ"
+    },
+    {
+      "id": "DZ-balyin",
+      "pattern": "باليين|بالية|بالي\\b",
+      "flags": "g",
+      "severity": "warn",
+      "message": "reviewer prefers قدم over باليين (worn/old)"
+    },
+    {
+      "id": "DZ-yunadi",
+      "pattern": "يناديه|يناديها|يناديهم|تناديه|تناديها",
+      "flags": "g",
+      "severity": "warn",
+      "message": "for 'to nickname/call someone' reviewer uses يعيطله/يعيطلها — verify context"
+    },
+    {
+      "id": "DZ-yaliq",
+      "pattern": "يليق|تليق",
+      "flags": "g",
+      "severity": "warn",
+      "message": "reviewer uses يوالم/توالم over يليق (to suit/become)"
+    },
+    {
+      "id": "DZ-tamma",
+      "pattern": "\\bتوما\\b",
+      "flags": "g",
+      "severity": "warn",
+      "message": "توما can be mistaken for pronoun; use full أنتوما for 'you all'"
+    },
+    {
+      "id": "DZ-bihoudo",
+      "pattern": "بهدوء",
+      "flags": "g",
+      "severity": "warn",
+      "message": "for physical quiet: reviewer prefers بلا صوت over بهدوء"
+    },
+    {
+      "id": "DZ-mudhhik",
+      "pattern": "مضحك|مضحكة",
+      "flags": "g",
+      "severity": "warn",
+      "message": "for 'makes you laugh' as adjective: reviewer uses يضحك (verbal) not مضحك"
+    },
+    {
+      "id": "MSA-dhahaba",
+      "pattern": "ذهب(?![\\u0600-\\u06FF])",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA ذهب (go/went) — use راح (DZ)"
+    },
+    {
+      "id": "MSA-akala",
+      "pattern": "(?<![\\u0600-\\u06FF])أكل(?![\\u0600-\\u06FF])",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA أكل (eat/ate) — use كلا/ياكل (DZ)"
+    },
+    {
+      "id": "MSA-nama",
+      "pattern": "(?<![\\u0600-\\u06FF])نام(?![\\u0600-\\u06FF])",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA نام (sleep/slept) — use رقد (DZ)"
+    },
+    {
+      "id": "MSA-taraka",
+      "pattern": "(?<![\\u0600-\\u06FF])ترك(?![\\u0600-\\u06FF])",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA ترك (leave/left) — use خلّى (DZ)"
+    },
+    {
+      "id": "MSA-hamala",
+      "pattern": "(?<![\\u0600-\\u06FF])حمل(?![\\u0600-\\u06FF])",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA حمل (carry/carried) — use رفد (DZ)"
+    },
+    {
+      "id": "MSA-wajada",
+      "pattern": "(?<![\\u0600-\\u06FF])وجد(?![\\u0600-\\u06FF])",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA وجد (found) — use لقا/لقى (DZ)"
+    },
+    {
+      "id": "MSA-layl",
+      "pattern": "(?<![\\u0600-\\u06FF])ليل(?![\\u0600-\\u06FF])",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA ليل (night) — use العشية (DZ Algiers)"
+    },
+    {
+      "id": "MSA-thumma",
+      "pattern": "(?<![\\u0600-\\u06FF])ثم(?![\\u0600-\\u06FF])",
+      "flags": "g",
+      "severity": "warn",
+      "message": "MSA ثم (then) — use اومبعد/بعدها (DZ)"
+    },
+    {
+      "id": "MSA-saala",
+      "pattern": "(?<![\\u0600-\\u06FF])سأل(?![\\u0600-\\u06FF])",
+      "flags": "g",
+      "severity": "warn",
+      "message": "REVIEW سأل (ask) — DZ NT uses it but سقسى is more colloquial"
+    }
   ],
-
   "density_checks": [
-    { "id": "DZ-bianna-density", "form": "بأن", "flags": "g", "vs": "بلي", "vsFlags": "g", "severity": "warn", "message": "MSA complementizer بأن used relative to DZ بلي — should be ~0" },
-    { "id": "DZ-hadha-density",  "form": "هذا|هذه|هؤلاء", "flags": "g", "vs": "هاد", "vsFlags": "g", "severity": "warn", "message": "MSA demonstratives (هذا/هذه/هؤلاء) used relative to DZ هاد" }
+    {
+      "id": "DZ-bianna-density",
+      "form": "بأن",
+      "flags": "g",
+      "vs": "بلي",
+      "vsFlags": "g",
+      "severity": "warn",
+      "message": "MSA complementizer بأن used relative to DZ بلي — should be ~0"
+    },
+    {
+      "id": "DZ-hadha-density",
+      "form": "هذا|هذه|هؤلاء",
+      "flags": "g",
+      "vs": "هاد",
+      "vsFlags": "g",
+      "severity": "warn",
+      "message": "MSA demonstratives (هذا/هذه/هؤلاء) used relative to DZ هاد"
+    }
   ]
 }

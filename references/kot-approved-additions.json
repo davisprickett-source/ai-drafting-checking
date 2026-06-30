@@ -1,0 +1,4 @@
+{
+  "_note": "Human-confirmed Lagwan word forms. Populated by: bun tools/approve-form.ts <word> --profile profiles/kot.json. ONLY add entries after a competent native speaker or translator has confirmed the form — never from AI output alone.",
+  "approved": {}
+}
