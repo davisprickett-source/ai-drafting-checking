@@ -39,3 +39,9 @@ Most of what our system already checks IS a CONNOT category — which is why the
 - translation-issues taxonomy → **Idiom [L]**, **Metaphor [Rh]**, **Unknown idea [Cu]**, measurement (Unknown idea), **Rhetorical question [Rh]**, **Key biblical term [L]**
 - proper-names → **Proper name [L]**
 So a single flag carries a CONNOT tag whether it surfaced from an AI draft or a consultant reading a human translation.
+
+**Honesty note — three grades of "covered."** The mapping above does not mean the system *detects* every category. Be precise about which grade each claim is:
+1. **Deterministically detected** (the free tools actually compute it): Orthography issues [RL], unattested vocabulary → part of Naturalness [Co] / Lexical correspondence [L], key-term presence, proper-name forms, and the discourse *shapes* a profile's `structure_patterns` encode. Regex + corpus membership — nothing more.
+2. **Model-detected** (an AI pass can raise it, with model-grade reliability — real recall gaps, occasional confident misses): Accuracy/Omission via the blinded back-translation diff, Participant reference, Idiom, Metaphor, Unknown idea, Rhetorical question, tense/aspect — the categories the reviewer prompt and deep lenses target.
+3. **Vocabulary only** (the taxonomy gives the tag a name, but nothing systematically hunts for it): most of Discourse [D] (chiasmus, prominence, information load, poetry), Rhetoric [Rh] beyond the common figures, Culture [Cu] beyond unknown-idea, sociolinguistic register, illocutionary force, and the whole [RL] apparatus of front/back matter. A consultant working through these still works from their own checklist; the taxonomy just lets their notes and the system's flags share one vocabulary.
+A category appearing in this file is a *naming convention*, not a coverage claim.

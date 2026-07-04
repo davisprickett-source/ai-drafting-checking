@@ -55,6 +55,8 @@
 
 This is where the per-language orthography and leak checks live (script substitutions, marked-character rules, hyphen-suffix rules, etc.). Adding or tightening a check is a config edit here — the verifier and `generate-system-instruction.ts` both read it.
 
+**You do not need to write regex yourself.** If regex isn't your thing, paste this into your AI session: *"Interview me about my language's orthography and the majority/related-language interference we actually see in drafts, then write the `linter_rules[]` and `density_checks[]` entries for my profile. After writing each rule, test it: show me 3 strings it should catch and 3 it should not, and run the linter on a sample to confirm."* Then verify each rule fires (and doesn't over-fire) on a real text before trusting it — a wrong rule that never fires is invisible, and one that over-fires trains the team to ignore the linter.
+
 ### Density checks
 `density_checks[]` — flags a discouraged form that is *overused relative to* a preferred form (the classic leaked-auxiliary tell). Each entry:
 | key | meaning |

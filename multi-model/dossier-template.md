@@ -15,9 +15,9 @@ SOURCE
   Issue:          <what makes this verse non-trivial, if anything>
 
 DRAFTS (target language)
-  ▸ Opus:    <draft + one-line argument>
-  ▸ Sonnet:  <draft + one-line argument>
-  ▸ Gemini:  <draft + one-line argument>     (from your CLI)
+  ▸ deep:        <draft + one-line argument>
+  ▸ workhorse:   <draft + one-line argument>
+  ▸ independent: <draft + one-line argument>   (the other-vendor seat — from your CLI/chat)
 
 COUNCIL
   <what each model argued; where they agree; where they split and why>

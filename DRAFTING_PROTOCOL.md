@@ -31,7 +31,7 @@ Load these into the drafting session, in this order (file names follow your refe
 
 ### Context loading strategy (tested, not assumed)
 
-Examples beat rules, and curated/retrieved examples beat a raw whole-corpus dump. Measured on a fresh verse, same model, only the examples varied:
+Examples beat rules, and curated/retrieved examples beat a raw whole-corpus dump. Measured on **one fresh verse, one model, one language** (n=1 — a directional data point consistent with the in-context-learning literature, not a benchmark; re-run the comparison on your own language before leaning on the exact numbers):
 
 | Context | Result (verifier) |
 |---------|-------------------|
@@ -79,11 +79,11 @@ The one-shot attempt is what failed. Always iterate:
 3. **Revise** based on the self-audit.
 4. **Run the verifier** (Step 4) and feed the findings back; revise again.
 5. **Score confidence** — `bun tools/score-draft.ts <draft.json> [--vs <other-model-draft.json>]` tags each verse HIGH/MEDIUM/LOW from objective signals (lexical attestation, `⟨?⟩` markers, cross-model agreement). This tells you and the translator **which verses to scrutinize first** — the LOW ones. It is grounded transparency, not the model's self-rating.
-6. **Back-translate** — have a *different* model translate the target-language draft back into the LWC (`profile.lwc[0]`) *without looking at the source*, then diff that back-translation against the real source verse by verse. This catches the errors no spell-checker can: dropped clauses, wrong participant ("who did what to whom"), meaning drift. Any mismatch → revise. (See `multi-model/backtranslate-prompt.md`.)
+6. **Back-translate** — have a *different* model translate the target-language draft back into the LWC (`profile.lwc[0]`) *without looking at the source*, then diff that back-translation against the real source verse by verse. This catches the errors no spell-checker can: dropped clauses, wrong participant ("who did what to whom"), meaning drift. Any mismatch → revise. **Run it blinded** — opaque segment ids (never the verse reference), shuffled order, gloss-before-prose — because a model that recognizes the passage can back-translate from memory and silently restore the very errors this step exists to catch. (Procedure + rationale: `multi-model/backtranslate-prompt.md`.)
 7. **Native-speaker / expert spot-check**, LOW-confidence verses first. Fold comments back in — and **bank every correction** (`multi-model/corrections/`) as future few-shot data.
 8. Repeat 4–7 until the verifier is clean, confidence is acceptable, the back-translation matches the source, and the spot-check passes.
 
-> Evidence this loop works: a draft that a fluent speaker scored **7/10** was revised 3–4 times first; with corrections folded in it was heading to ~8.5–9. One-shot drafts don't get those scores. The iteration *is* the method.
+> Evidence this loop works (one project, one fluent reviewer — anecdotal, stated as such): a draft scored **7/10** by a fluent speaker was revised 3–4 times first; with corrections folded in it was trending toward ~8.5–9. One-shot drafts in the same project did not get those scores. The iteration *is* the method; treat the numbers as an existence proof, not a benchmark.
 
 ## Step 4 — Verify before any human reads it
 

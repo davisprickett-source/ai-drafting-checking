@@ -17,9 +17,9 @@ The published/reference translation (`paths.check_set` in your language profile)
 - the LWC source parallel (a major-language Bible the team reads) lives under the profile's `paths.references`; the corpus and any back-translation live in your corpus directory.
 
 ## To draft a passage (the main task)
-Tell me: **"Run the council on <passage>."** I will:
-1. Spawn an **Opus** drafter and a **Sonnet** drafter (each: the reference pack + source-language gloss + the LWC parallel, NOT the check set).
-2. Ask you to run the same prompt in your own **Gemini CLI** window and drop its draft into `multi-model/drafts/`.
+Type into this session (you're talking to the AI assistant running in Claude Code — "I" below is that assistant): **"Run the council on <passage>."** I will:
+1. Spawn a **`deep`** drafter and a **`workhorse`** drafter from your `models.json` roster (each gets: the reference pack + source-language gloss + the LWC parallel, NOT the check set).
+2. Ask you to run the same prompt on your **`independent`** model (a different vendor — its CLI or chat window) and drop its draft into `multi-model/drafts/`.
 3. Verify + score + diff all drafts (`check-draft --lexicon`, `score-draft`, `compare-drafts`).
 4. Synthesize a **dossier** (`dossier-template.md` shape): drafts, council arguments, options-with-warrants, confidence, LWC parallel, uncertainties, questions, resource pointers.
 5. You make the final call; we bank your corrections in `multi-model/corrections/` as future few-shot data.

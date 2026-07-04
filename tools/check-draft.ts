@@ -197,7 +197,7 @@ function scanFile(path: string): { errors: number; warns: number } {
     }
   }
 
-  if (errors === 0 && warns === 0) console.log("  ✓ clean");
+  if (errors === 0 && warns === 0) console.log("  ✓ mechanically clean (orthography/lexicon only — meaning, participants, and discourse are NOT checked here)");
   return { errors, warns };
 }
 
@@ -254,4 +254,6 @@ for (const f of files) {
 }
 
 console.log(`\n--- summary: ${totalErrors} error(s), ${totalWarns} warning(s) across ${files.length} file(s) ---`);
+if (totalErrors === 0 && totalWarns === 0)
+  console.log(`(zero flags = the MECHANICAL layer is clean. This linter cannot see wrong participants,\n dropped negation, tense/aspect flips, or wrong senses of attested words — those are what the\n back-translation check and the human review exist for. Do not read "clean" as "correct".)`);
 process.exit(totalErrors > 0 ? 1 : 0);

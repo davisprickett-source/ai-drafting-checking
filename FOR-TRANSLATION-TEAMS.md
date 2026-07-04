@@ -2,6 +2,16 @@
 
 > An AI-assisted toolkit for translating Scripture into a minority language **and** for consultant-checking a translation — built to be affordable (most checks are free), honest about uncertainty (it flags what it doesn't know at the right level), and portable to any language. It does the legwork; **the mother-tongue translator and the consultant keep the judgment.**
 
+## The terms you'll see everywhere (30 seconds)
+
+- **LWC** — *language of wider communication*: the major language your team reads comfortably (French, English, Arabic, Swahili…). The system uses it for source parallels and back-translations.
+- **Corpus** — the Scripture (and other text) that already exists in your language, as verse-keyed data. It is the system's only evidence for what your language actually looks like.
+- **Lexicon** — the list of every word attested in your corpus, built automatically. The linter checks drafts against it.
+- **Check-set** 🔒 — a published/reference translation used only to *grade* drafts, never to make them (the "firewall").
+- **Reference pack** — the per-language briefing files (orthography, grammar, common errors, key terms, names, real example verses) that get loaded into every drafting session.
+- **In-context pack** — an auto-generated distillation of your corpus (core vocabulary + real-verse pattern banks) that anchors the model in your language.
+- **Dossier** — the per-verse output: proposed draft + options + flags + reasoning, for a human to decide from.
+
 ## What it's for, and who
 
 | You are… | You use… | You get… |
@@ -21,6 +31,8 @@ The system never hides what it doesn't know. It flags at four levels, so a trans
 4. **Issue level** — a CONNOT category + severity (must-fix / discuss / minor): the consultant's standard vocabulary for *what kind* of issue it is.
 
 A clean verse shows none of these. A hard verse shows several. That is the point: **the draft discloses its own doubt instead of looking falsely confident**, which is what keeps a translator thinking rather than rubber-stamping.
+
+**What "no flags" does NOT mean.** The flags are computed from *form* — spelling, attested vocabulary, cross-model agreement, the model's own uncertainty marks. None of them verify *meaning*. A verse where every word is attested, the models agree, and nothing is flagged can still name the wrong participant, drop a negation, flip a tense, or use an attested word in the wrong sense — fluently. Those errors are caught (only) by the back-translation check and by you. So the honest reading of the signals is: **flags tell you where to look first; the absence of flags never tells you a verse is right.** Every verse gets a human read; the flags just order the queue.
 
 ## The cost tiers
 Match the spend to the need — see `MODES.md`. **L0 is free** (the verifier, corpus/structure search, rendering) and catches the mechanical layer at zero cost; reserve paid inference (L1–L3) for genuine judgment, and escalate per verse, not per chapter. `bun tools/estimate-cost.ts <verses>` shows the cost before you run.

@@ -13,6 +13,8 @@ A live run on one hard verse showed why this works. Given identical rules and so
 
 One model alone, you'd never see that the aspect choice is contested or that the related-language auxiliary slipped in. The disagreement *is* the finding. Clone-voting (same model ×N) would not produce it.
 
+**But agreement is NOT the converse finding.** Frontier models are trained on the same major translations, the same interlinears, the same commentaries — their errors are *correlated*, not independent. When two models converge on the same rendering, that is weak evidence at best: they may both be reproducing the same majority-language prior, the same wrong interpretation of a rare construction, the same calque. Treat cross-model agreement as "no cheap red flag," never as verification. Disagreement reliably marks a spot that needs a human; agreement does not reliably mark a spot that doesn't. This asymmetry is why the confidence tiers (`score-draft`) are triage, not accuracy verdicts, and why the back-translation check and the human review run even on verses where the whole panel agrees.
+
 ## Roles
 
 | Role | Who (council seat → your model via `models.json`) | Job |

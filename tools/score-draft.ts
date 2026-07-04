@@ -10,8 +10,11 @@
  * (back-translation fidelity and source-difficulty are model/curation inputs,
  *  not computed here — see references/draft-annotation.md.)
  *
- * Tier: HIGH (attestation ≥97%, no markers, agree) · LOW (attestation <85%, or
- * markers present, or disagree) · MEDIUM otherwise.
+ * Tier: HIGH (attestation ≥97%, no markers, AND a second draft agrees) · LOW
+ * (attestation <85%, or markers present, or disagree) · MEDIUM otherwise.
+ * Without --vs there is no corroborating signal, so a single draft caps at
+ * MEDIUM: attestation alone cannot rule out a fluent verse that says the wrong
+ * thing. The tiers are MECHANICAL triage, not an accuracy verdict.
  *
  * Usage:
  *   bun tools/score-draft.ts <draft.json> [--vs <other-draft.json>] [--lexicon <path>]
@@ -72,8 +75,14 @@ for (const ref of Object.keys(draft)) {
 
   let tier: "HIGH" | "MEDIUM" | "LOW";
   if (rate < 0.85 || markers > 0 || agree === false) tier = "LOW";
-  else if (rate >= 0.97 && (agree === true || agree === null)) tier = "HIGH";
-  else tier = "MEDIUM";
+  else if (rate >= 0.97 && agree === true) tier = "HIGH";
+  else {
+    tier = "MEDIUM";
+    // HIGH requires a corroborating signal beyond lexical attestation. A single
+    // draft (no --vs) has none, so it caps at MEDIUM — attestation alone cannot
+    // rule out a fluent, fully-attested verse that says the wrong thing.
+    if (agree === null && rate >= 0.97) reasons.push("no cross-draft check (single draft caps at MEDIUM)");
+  }
   tiers[tier]++;
 
   const flag = tier === "HIGH" ? "  " : tier === "MEDIUM" ? "· " : "▸ ";
@@ -83,3 +92,9 @@ for (const ref of Object.keys(draft)) {
 const total = tiers.HIGH + tiers.MEDIUM + tiers.LOW;
 console.log(`\n--- ${total} verses · HIGH ${tiers.HIGH} · MEDIUM ${tiers.MEDIUM} · LOW ${tiers.LOW} ---`);
 console.log(`Review the ${tiers.LOW} LOW verses first.`);
+console.log(
+  `\nWhat these tiers mean: HIGH = every word corpus-attested, no uncertainty markers, AND a second\n` +
+    `independent draft agrees. It is a MECHANICAL signal — it does NOT verify meaning. A fluent verse\n` +
+    `that names the wrong participant or drops a negation can score HIGH. Accuracy is checked by the\n` +
+    `back-translation step and the human review, never by this scorer.`
+);

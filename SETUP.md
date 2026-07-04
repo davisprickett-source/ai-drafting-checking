@@ -58,6 +58,13 @@ It writes to `check-set/` and is **never loaded into drafting** — it's the ans
 - **Drafting** a new translation → [`START-HERE.md`](START-HERE.md) / [`DRAFTING_PROTOCOL.md`](DRAFTING_PROTOCOL.md) → council ([`multi-model/COUNCIL.md`](multi-model/COUNCIL.md)) or relay ([`multi-model/RELAY.md`](multi-model/RELAY.md)).
 - **Checking** an existing translation → [`consultant-check/`](consultant-check/) → CONNOT-tagged notes with AXIS / severity / who-decides triage.
 
+## Your data, cost, and safety (read before running any AI tier)
+
+- **What stays on your machine:** everything in L0 — the corpus, lexicon, linter, search, and rendering are local Bun scripts; no network, no vendor.
+- **What leaves your machine at L1+:** whatever you put in an AI prompt — your draft verses, corpus excerpts, reference-pack content — goes to the model vendor(s) *you* configured in `models.json`, under *their* data terms. If your project has sensitivity constraints (unpublished Scripture, a security-sensitive region, a partner agreement), review the vendor's data-use policy first, or use the `local` role (offline models) for anything that must not leave the building. The check-set is never sent anywhere by any workflow — it is only read locally by the scoring tools.
+- **Cost:** L0 is free forever. For paid tiers, `bun tools/estimate-cost.ts <verse-count>` shows the relative cost *before* you run anything; nothing in this toolkit spends money without you invoking a model yourself. A sane starting budget is the L1.5 loop (`MODES.md`) — roughly two cheap model calls per passage.
+- **The AI never writes to your Paratext project.** Export is an explicit, human-triggered step; nothing touches your source of truth on its own.
+
 ## What setup does NOT need
 - No internet for the deterministic layer (import, lexicon, linter, search, rendering all run locally).
 - No specific vendor — bring whatever model you have.
