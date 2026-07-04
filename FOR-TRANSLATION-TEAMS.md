@@ -1,6 +1,6 @@
 # For Translation Teams
 
-> An AI-assisted toolkit for translating Scripture into a minority language **and** for consultant-checking a translation — built to be affordable (most checks are free), honest about uncertainty (it flags what it doesn't know at the right level), and portable to any language. It does the legwork; **the mother-tongue translator and the consultant keep the judgment.**
+> An AI-assisted toolkit for translating Scripture into a minority language **and** for consultant-checking a translation — built to be affordable (most checks are free), honest about uncertainty (it surfaces its *known* unknowns at the right level, and is explicit that unknown unknowns exist — see "What no flags does NOT mean" below), and portable to any language. It does the legwork; **the mother-tongue translator and the consultant keep the judgment.**
 
 ## The terms you'll see everywhere (30 seconds)
 

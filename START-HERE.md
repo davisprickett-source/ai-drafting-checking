@@ -8,6 +8,8 @@ An experiment-grade, reusable workflow for AI-assisted Bible translation into an
 ## The one rule you must not break 🔒
 The published/reference translation (`paths.check_set` in your language profile) is the **CHECK set**. NEVER load it into a drafting session, and never copy its names/terms/wordings into `references/`. Drafts must be independent of the text we grade them against. Use it only to score finished drafts.
 
+Be honest about what this firewall does and doesn't buy: it keeps the comparison **lexically** blind (the drafter never sees the target-language answer key), which is the part that matters for a minority language the model has never seen. It cannot make the comparison **content**-blind — every frontier model has the source text memorized in major languages, so it already "knows" what each verse should say. The experiment measures whether the model can say it *in your language*; interpret scores accordingly. The firewall is also procedural, not mechanical — an agent in this repo *can* read `check-set/` if told to, so the discipline is on you and your prompts.
+
 ## The map
 - `DRAFTING_PROTOCOL.md` — the drafting loop + the exact reference load order. The drafting system instruction is auto-generated per language by `bun tools/generate-system-instruction.ts`.
 - `references/` — the **drafting pack** (load these): common-errors (negative prompt), narrative-exemplars (positive prompt), draft-annotation (uncertainty/options/confidence markup), proper-names, key-terms, orthography, grammar, style-guide. Build them from `references/_templates/`.

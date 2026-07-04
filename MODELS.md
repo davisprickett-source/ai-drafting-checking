@@ -50,7 +50,7 @@ The runner only needs to know *that* a role is non-subagent so it can pause and 
 
 ## Relay / second-pass (chaining vendors)
 
-Davis's case: *run a draft through Claude, then hand it to Gemini to improve.* That's a **relay** — see `multi-model/RELAY.md`. In short: roster-A produces a draft or review; roster-B does a *second pass* over A's output (improve, or adversarially review); `compare-drafts.ts` surfaces what B changed; the human adjudicates. Because each pass is a separate model on the *same* grounded prompt, B's edits to A are themselves a disagreement signal.
+A common case: *run a draft through one vendor's model, then hand it to another vendor's to improve.* That's a **relay** — see `multi-model/RELAY.md`. In short: roster-A produces a draft or review; roster-B does a *second pass* over A's output (improve, or adversarially review); `compare-drafts.ts` surfaces what B changed; the human adjudicates. Because each pass is a separate model on the *same* grounded prompt, B's edits to A are themselves a disagreement signal.
 
 ## The empirical benchmark (one data point, Claude family)
 

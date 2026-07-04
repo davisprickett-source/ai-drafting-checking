@@ -35,7 +35,7 @@ RESOURCES (when relevant)
   - Commentary / translator's note: <pointer>
 ```
 
-Plain verses (no crux, models agree, verifier clean) collapse to a single line with the recommended rendering and HIGH confidence — the dossier only expands where the work is.
+Plain verses (no crux, models agree, verifier clean) collapse to a single line with the recommended rendering, marked **UNFLAGGED (mechanical checks passed — accuracy unverified)** — the dossier only expands where the *known* work is. The collapse is a layout decision, not a verdict: collapsed verses still require the translator's read, because the errors the mechanical layer cannot see (wrong participant, dropped negation, wrong sense of an attested word) present as exactly this kind of quiet verse.
 
 ---
 

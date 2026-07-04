@@ -3,7 +3,7 @@
 > Goal: drop this toolkit next to a Paratext project and have it working in a few commands. Everything language-specific is config (one profile + a reference pack + your model roster); the engine never changes. No inference is needed for setup.
 
 ## Prerequisites
-- [Bun](https://bun.sh) (`curl -fsSL https://bun.sh/install | bash`). All tools run with `bun`.
+- [Bun](https://bun.sh) (`curl -fsSL https://bun.sh/install | bash` on macOS/Linux; on **Windows**, install [WSL](https://learn.microsoft.com/windows/wsl/install) first and run everything inside it — Paratext stays on Windows, you just point the importer at the project folder, e.g. `/mnt/c/My Paratext 9 Projects/XYZ`). All tools run with `bun`.
 - Your existing Scripture in **Paratext** (USFM files + `Settings.xml`) — this becomes the corpus the whole system grounds on.
 - Access to at least one AI model (any vendor). See [`MODELS.md`](MODELS.md).
 
@@ -27,6 +27,8 @@ bun tools/check-setup.ts --profile profiles/xyz.json
 ```
 
 `check-setup` tells you what's ready and what's still to-do (it now also checks your model roster). When it says **Fully set up** — or **Usable** with only `!` items — you can draft or check.
+
+> **Note on the shipped examples:** the `kot`/`dz` profiles in this repo are real working examples, but their corpora, lexicons, and check-sets are **not distributed** (they belong to those translation projects — see the note in `LICENSE`). On a fresh clone, `check-setup` against those profiles will report missing data files; that's expected. Your own language works from step 1 above.
 
 ## Then fill the language-specific config
 

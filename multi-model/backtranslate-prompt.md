@@ -2,7 +2,7 @@
 
 > The orthography/vocab linter checks *form*. This checks *meaning* — the errors no spell-checker sees (dropped clauses, wrong participant, drift). A **different** agent than the drafter back-translates the target-language draft into the LWC (the team's strong language, `profile.lwc[0]`), without the source, and we diff that against the real source. Run it as a council step on every draft.
 >
-> Use a different model from the one that drafted, for independence. When an independent model's back-translation matches the source on a hard clause, that's positive evidence the rendering is faithful — while any clause where it diverges flags an unresolved crux to revisit.
+> Use a different model from the one that drafted, for independence. The evidence is **asymmetric**: a clause where the BT *diverges* from the source is real evidence of a problem — but a clause where it *matches* is only weak evidence of fidelity, because the BT model knows the source text and a match may show memorization rather than faithfulness (see the contamination section below).
 >
 > ### ⚠️ The contamination problem (read before running)
 > Every frontier model has the Bible memorized in every major language. If the BT agent can tell **which verse** it is looking at, it can "back-translate" from memory instead of from the draft — reproducing the real verse and thereby *hiding exactly the errors this check exists to catch* (a dropped clause "comes back" in the BT because the model knows it should be there). An instruction not to recall the original does not remove the memory; you have to remove the cue. So:
@@ -37,4 +37,4 @@ you — and say so in NOTES ("recognized passage") so the checker can weigh the 
 1. Put `LWC_BT` next to the **LWC source parallel** (the profile's LWC reference under `paths.references`) — verse by verse.
 2. Where they diverge in *meaning* (not wording), that's a flag: wrong actor, dropped clause, an idiom that didn't carry. Revise.
 3. Record it in the dossier's `backtranslation` block (`build-dossier.ts` renders the two LWC lines side by side with a verdict).
-4. An exact or near match on the hard clause (e.g. [the hard clause]) is positive evidence the rendering is faithful.
+4. Read the evidence asymmetrically: a **mismatch** on a clause is evidence of a problem; a **match** is weak evidence only (the BT model knows the source — under contamination, a source-matching BT can come from a *wrong* draft). A match on a blinded, gloss-first BT is worth more than one on an unblinded prose BT, but neither substitutes for a human back-translator.

@@ -3,6 +3,8 @@
 
 ---
 
+> **Asymmetry caveat (added 2026-07-04):** the human translation's "2 confirmed accuracy concerns" were found because it was *adversarially consultant-checked* (10 verses); the AI draft has **not** been consultant-checked or native-read — its "0 hard errors" means linter-clean only, and its unknown-unknowns are uncounted. This ranking compares a text that was attacked against one that wasn't; run the same consultant-check on the AI draft's verses before quoting it.
+
 ## Three-Way Ranking
 
 | Rank | Draft | Score | Key Signal |

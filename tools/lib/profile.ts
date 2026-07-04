@@ -97,12 +97,21 @@ export function resolveProfilePath(argv: string[] = process.argv.slice(2)): stri
 
 /** Load + normalize the active profile, resolving all paths to absolute. */
 export function loadProfile(argv: string[] = process.argv.slice(2)): Profile {
-  const profilePath = resolveProfilePath(argv);
+  // CLI-friendly failure: every consumer is a command-line tool, and a newcomer
+  // pasting a quickstart command should get one clean line, not a stack trace.
+  let profilePath: string;
+  try {
+    profilePath = resolveProfilePath(argv);
+  } catch (e) {
+    console.error(`✗ ${(e as Error).message}`);
+    process.exit(2);
+  }
   let raw: any;
   try {
     raw = JSON.parse(readFileSync(profilePath, "utf8"));
   } catch (e) {
-    throw new Error(`cannot read profile ${profilePath}: ${(e as Error).message}`);
+    console.error(`✗ cannot read profile ${profilePath}: ${(e as Error).message}`);
+    process.exit(2);
   }
   const paths = { ...(raw.paths || {}) };
   for (const k of Object.keys(paths)) {

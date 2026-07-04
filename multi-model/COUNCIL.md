@@ -50,7 +50,7 @@ The `independent` seat stays a manual step on purpose: it's a genuinely differen
 ## The referee's discipline (critical)
 
 The referee must **not manufacture consensus or invent a target-language "correct" form**. Its job is to make the decision *legible*:
-- Where models agree and the verifier is clean → mark HIGH confidence, recommend it.
+- Where models agree and the verifier is clean → mark it **UNFLAGGED — mechanical checks passed, accuracy unverified** — and recommend it as the starting rendering. Agreement between models that share a training prior is one vote, not two; unflagged verses still get the back-translation check and a human read.
 - Where they disagree → show both, name the warrant for each, recommend on stated grounds (e.g. "Model A's corpus-supported aspect-marker over Model B's related-language auxiliary — the auxiliary is a linter-flagged leak"), but leave the final call to the human.
 - Where it's a real crux (textual, idiom) → present options, do not collapse them.
 - Reconcile against the published/reference translation (CHECK-ONLY) only AFTER the human has decided, never during synthesis.
@@ -59,19 +59,19 @@ The referee must **not manufacture consensus or invent a target-language "correc
 
 Running a big panel on every verse wastes inference. So the council has two tiers, and the deep one is opt-in.
 
-**Standard tier (every verse).** Opus + Sonnet draft, the verifier + `score-draft` run, one back-translation. Cheap. Handles the ~80% of verses that aren't hard.
+**Standard tier (every verse).** `deep` + `workhorse` draft, the verifier + `score-draft` run, one back-translation. Cheap. Handles the ~80% of verses that aren't hard.
 
 **Deep tier (escalation — only when triggered).** Fires for a verse when ANY of:
 - `score-draft` tags it LOW, or the models disagree (`compare-drafts`),
 - it hits a known crux (textual variant, rare construction, unresolved idiom),
 - the human flags it.
 
-The deep tier is **not "more drafts."** It's distinct *lenses*, each a separate agent (mix Opus/Sonnet), because diverse perspectives catch what redundancy can't:
+The deep tier is **not "more drafts."** It's distinct *lenses*, each a separate agent, because diverse prompts catch things a single pass misses. Be honest about what this buys: lenses on the same vendor are **structured redundancy** (different questions, same priors), useful but not independent. For real independence, seat the **`independent` vendor** in at least the adversarial-refuter lens:
 - **Exegesis** — is the interpretation defensible? what are the real source/interpretive options?
 - **Naturalness** — does it read as natural target language? (grounded in the corpus + exemplars)
 - **Participant reference** — who did what to whom? (the worst failure class — wrong participant)
 - **Adversarial refuter** — actively try to break the proposed rendering; assume it's wrong, and say how.
 
-Optionally run each lens as an Opus+Sonnet pair and keep a finding only if ≥1 of the pair raises it. The referee folds the deep findings into the dossier's Council / Options / Questions, and the verse is re-scored.
+Optionally run each lens as a `deep`+`workhorse` pair and keep a finding only if ≥1 of the pair raises it. The referee folds the deep findings into the dossier's Council / Options / Questions, and the verse is re-scored.
 
 **Invoke (live session):** say *"deep-analyze <verse>"* → the session spawns the lens panel for that one verse. Default off; escalate only when the cost is worth it. This keeps inference proportional to difficulty.

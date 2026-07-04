@@ -2,6 +2,12 @@
 
 An experiment-grade, **reusable** system for AI-assisted Bible translation into any low-resource language. It produces **translation dossiers** a human decides from (proposed draft + options + checks + reasoning), not bare drafts to rubber-stamp. Everything language-specific is config (a language profile + a reference pack); the engine is language-agnostic.
 
+## Before you start (60 seconds)
+
+- **How this is actually used:** an AI coding assistant (e.g. [Claude Code](https://claude.com/claude-code) — a terminal/desktop app where an AI agent reads files and runs commands while you talk to it) sits *inside this project* and drives the workflow; you converse, it does the terminal work. Anywhere a doc says "tell me…", "me" is that assistant. You can run the free tools without any AI, and the prompts are paste-ready for any chat model — but the smooth path assumes an agent.
+- **Cost:** the deterministic layer (linter, corpus search, scoring, rendering) is free and offline. AI tiers cost whatever your model access costs — a chat subscription (~$20/mo tier works), API credit, or a local model. `bun tools/estimate-cost.ts <verses>` previews relative spend before any run; see the data/cost/safety section in [`SETUP.md`](SETUP.md).
+- **OS:** developed on macOS/Linux. On Windows, run it under [WSL](https://learn.microsoft.com/windows/wsl/install) (Bun's supported path); Paratext stays on Windows — you only point the importer at the project folder.
+
 ## Start here
 
 - **For a translation team / consultant (read this first):** [`FOR-TRANSLATION-TEAMS.md`](FOR-TRANSLATION-TEAMS.md) — what it does, the two workflows, the flag levels, the cost tiers, the invariants.
@@ -10,7 +16,6 @@ An experiment-grade, **reusable** system for AI-assisted Bible translation into 
 - **Cost tiers (free → deep):** [`MODES.md`](MODES.md) — match inference spend to the need.
 - **Using it (drafting a passage):** [`START-HERE.md`](START-HERE.md) — open a Claude Code session and say *"run the council on \<passage\>"*.
 - **Configuring it for your language:** [`WORKFLOW.md`](WORKFLOW.md) + [`profiles/README.md`](profiles/README.md) — fill a language profile (`profiles/_template.json`); the core stays language-agnostic.
-- **Project state / status:** `PROJECT.md` · `ISA.md`
 
 ## What's built (component map)
 

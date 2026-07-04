@@ -2,11 +2,15 @@
 /**
  * score-draft.ts — compute GROUNDED, per-verse confidence signals for a draft.
  *
- * Confidence here is NOT the model's self-rating (uncalibrated noise). It is an
- * ensemble of objective signals:
- *   - lexical attestation: % of content words attested in the corpus lexicon
- *   - uncertainty markers: count of ⟨?⟩ and {A ⟂ B} the model emitted
- *   - cross-model agreement: if a second draft is given, do they match? (objective)
+ * Confidence here is NOT the model's self-rating. It is an ensemble of
+ * mechanical signals — with their limits stated:
+ *   - lexical attestation: % of CONTENT words (profile stopwords excluded)
+ *     attested in the corpus lexicon
+ *   - uncertainty markers: count of ⟨?⟩ and {A ⟂ B} the model emitted. NOTE:
+ *     these are model self-report — a model that under-flags scores higher, so
+ *     never read a low marker count as evidence of correctness.
+ *   - cross-model agreement: content-token overlap (Jaccard) with a second
+ *     draft: ≥0.8 agree · <0.5 disagree · between = partial (neither)
  * (back-translation fidelity and source-difficulty are model/curation inputs,
  *  not computed here — see references/draft-annotation.md.)
  *
@@ -51,27 +55,50 @@ const load = (p: string): Record<string, unknown> => {
 
 const draft = load(files[0]);
 const other = vsPath ? load(vsPath) : null;
-const norm = (s: string) => s.normalize("NFC").toLowerCase().replace(/⟨\?⟩/g, "").replace(/\s+/g, " ").replace(/[.,;:!?«»"]/g, "").trim();
+
+// Attestation is computed over CONTENT words only. Function words (the profile's
+// stopwords) are high-frequency and always attested, so counting them inflates the
+// rate and lets a verse with several wrong content words clear the HIGH threshold.
+const STOP = new Set<string>(
+  Array.isArray(profile.raw?.stopwords) ? profile.raw.stopwords.map((s: string) => s.toLowerCase()) : []
+);
+const contentToks = (s: string) =>
+  tokenize(s.normalize("NFC").replace(/⟨\?⟩/g, "")).filter((t) => !STOP.has(t));
 
 const tiers: Record<string, number> = { HIGH: 0, MEDIUM: 0, LOW: 0 };
-console.log(`scoring ${files[0]}${vsPath ? ` vs ${vsPath}` : ""}\n`);
+console.log(`scoring ${files[0]}${vsPath ? ` vs ${vsPath}` : ""}${STOP.size ? "" : "\n(no stopwords in profile — attestation runs over ALL tokens and will read high)"}\n`);
 
 for (const ref of Object.keys(draft)) {
   const text = getText(draft[ref]);
-  const toks = tokenize(text);
-  const attested = toks.filter((t) => LEX.has(t)).length;
-  const rate = toks.length ? attested / toks.length : 1;
+  const content = contentToks(text);
+  const scored = content.length ? content : tokenize(text);
+  const attested = scored.filter((t) => LEX.has(t)).length;
+  const rate = scored.length ? attested / scored.length : 1;
   const markers = (text.match(/⟨\?⟩/g) || []).length;
   const options = (text.match(/⟂/g) || []).length;
 
+  // Cross-draft agreement = content-token overlap (Jaccard), not exact string match.
+  // Exact match is vacuous for real verses (any two translations differ somewhere,
+  // so everything "disagrees" and the signal carries nothing). Overlap grades it:
+  // ≥0.8 agree · <0.5 disagree · between = partial (counts as neither).
+  const hasOther = !!(other && other[ref] != null);
   let agree: boolean | null = null;
-  if (other && other[ref] != null) agree = norm(text) === norm(getText(other[ref]));
+  let overlap: number | null = null;
+  if (hasOther) {
+    const a = new Set(content);
+    const b = new Set(contentToks(getText(other![ref])));
+    const uni = new Set([...a, ...b]);
+    const inter = [...a].filter((x) => b.has(x)).length;
+    overlap = uni.size ? inter / uni.size : 1;
+    agree = overlap >= 0.8 ? true : overlap < 0.5 ? false : null;
+  }
 
   const reasons: string[] = [];
-  if (rate < 0.97) reasons.push(`attestation ${(rate * 100).toFixed(0)}%`);
+  if (rate < 0.97) reasons.push(`content attestation ${(rate * 100).toFixed(0)}%`);
   if (markers) reasons.push(`${markers} ⟨?⟩ marker(s)`);
   if (options) reasons.push(`${options} option(s)`);
-  if (agree === false) reasons.push("models disagree");
+  if (agree === false) reasons.push(`models disagree (overlap ${((overlap ?? 0) * 100).toFixed(0)}%)`);
+  else if (hasOther && agree === null) reasons.push(`partial cross-draft overlap (${((overlap ?? 0) * 100).toFixed(0)}%)`);
 
   let tier: "HIGH" | "MEDIUM" | "LOW";
   if (rate < 0.85 || markers > 0 || agree === false) tier = "LOW";
@@ -81,7 +108,7 @@ for (const ref of Object.keys(draft)) {
     // HIGH requires a corroborating signal beyond lexical attestation. A single
     // draft (no --vs) has none, so it caps at MEDIUM — attestation alone cannot
     // rule out a fluent, fully-attested verse that says the wrong thing.
-    if (agree === null && rate >= 0.97) reasons.push("no cross-draft check (single draft caps at MEDIUM)");
+    if (!hasOther && rate >= 0.97) reasons.push("no cross-draft check (single draft caps at MEDIUM)");
   }
   tiers[tier]++;
 
