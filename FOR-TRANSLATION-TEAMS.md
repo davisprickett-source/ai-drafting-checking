@@ -25,7 +25,7 @@ Both workflows share one flag system, one taxonomy (CONNOT), and the same tiers 
 
 The system never hides what it doesn't know. It flags at four levels, so a translator sees each kind of uncertainty where it belongs:
 
-1. **Word level** — `word⟨?⟩`: this word may not be genuine in your language (unattested in the corpus, or a guess). The free linter computes this from the corpus.
+1. **Word level** — `word⟨?⟩`: this word may not be genuine in your language (unattested in the corpus, or a guess). The free linter computes this from the corpus. Its sibling `word⟨≈⟩` flags the opposite problem: a word that *is* genuine and works, but where a mature speaker probably has something better — a research/elicitation candidate, not an error (the B2-vs-C2 gap).
 2. **Phrase level** — `{A ⟂ B}`: a genuine choice with no single right answer (an idiom, a metaphor, a textual/interpretive fork, a measurement). Shown as options-with-reasons, never silently resolved.
 3. **Verse level** — a confidence tier (HIGH / MEDIUM / LOW) with its reasons, so you know which verses to scrutinize first.
 4. **Issue level** — a CONNOT category + severity (must-fix / discuss / minor): the consultant's standard vocabulary for *what kind* of issue it is.
@@ -38,15 +38,19 @@ A clean verse shows none of these. A hard verse shows several. That is the point
 Match the spend to the need — see `MODES.md`. **L0 is free** (the verifier, corpus/structure search, rendering) and catches the mechanical layer at zero cost; reserve paid inference (L1–L3) for genuine judgment, and escalate per verse, not per chapter. `bun tools/estimate-cost.ts <verses>` shows the cost before you run.
 
 ## A team's day-to-day
-1. **Set up once:** a language profile (`profiles/`) + your existing Scripture as the corpus → `build-lexicon`, `build-incontext-pack`. Build the reference pack (`WORKFLOW.md`).
+1. **Set up once:** a language profile (`profiles/`) + your existing Scripture as the corpus → `build-lexicon`, `build-incontext-pack`. Build the reference pack (`WORKFLOW.md`). Fill the **translation brief** in the profile (your philosophy, audience, register — every draft aligns to it). Then ask the system what it can do with your data: `bun tools/draft-readiness.ts` — it answers honestly, per genre, and says *elicit first* when your data is thin rather than pretending it can draft. Register any other language data you have — a dictionary, an old grammar, field notes — with a quality grade (`sources/README.md`); it all helps, at the right level of trust.
 2. **Draft a passage** at your chosen tier → read the dossier → edit the proposed draft, choose among options, resolve the questions → **approve** → export USFM to Paratext. Banked decisions teach the system (`approve-form`, `ingest-decisions`) so it improves with use.
 3. **Or check a translation** (human or AI) → consultant notes → discuss with the team → record decisions.
 4. **Always run the free checks** (`check-draft`, `grep-corpus`, `find-structures`) on anything — they cost nothing.
 
 ## The invariants (non-negotiable)
 - **The human decides.** AI surfaces, categorizes, and proposes; it never imposes a rendering.
+- **The system speaks YOUR language.** Every human-facing output — dossiers, consultant notes, elicitation questions, back-glosses, explanations — is produced in the team's LWC (`profile.lwc[0]`: French, Spanish, Arabic, Swahili, Chinese, whatever the team reads). English is never assumed; if any output arrives in the wrong language, say so and it regenerates. These docs are in English, but tell your assistant your working language once and hold it to it.
 - **Firewall:** a published/reference translation used for checking is *never* fed into drafting (it would make the draft non-independent of the check).
 - **The linter grows only on human-confirmed forms** — never on its own output, so it learns the language without certifying its own mistakes.
+
+## How it gets better with use (the compounding loop)
+Every interaction teaches it, permanently: corrections you bank (`corrections/`) become few-shot examples; words you confirm (`approve-form`) become attestation; elicitation answers become grade-A sources; each corpus/data addition moves the `draft-readiness` bands. A team that starts at ELICITATION-FIRST with one book and a shoebox of notes climbs, through ordinary use, to a system that drafts their remaining books well — that climb *is* the design. Nothing improves on AI output alone: only human-confirmed data compounds, so the system gets better at *your language as your team speaks it*, not at its own habits.
 
 ## Honest scope
 This raises the floor and removes friction. It does **not** replace a mother-tongue translator's ownership of the language or a consultant's judgment — it makes one skilled human go much further, which for under-resourced languages is exactly the bottleneck worth attacking.

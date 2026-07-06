@@ -14,9 +14,19 @@
     "check_set": "check-set/<iso>-check.json",
     "reference_pack": "references/",
     "incontext_pack": "references/incontext-pack.md",
+    "sources": "sources/<iso>-sources.json",
     "references": {
       "_example_label": "reference-versions/<lwc-bible>.json"
     }
+  },
+
+  "translation_brief": {
+    "philosophy": "meaning-based | balanced | more-formal — where the team sits on the literal↔dynamic spectrum",
+    "audience": "who the translation is for (e.g. 'rural believers, oral culture, low print literacy')",
+    "register": "the target register (e.g. 'respectful everyday speech, as an elder telling a story')",
+    "key_term_policy": "how new key terms are decided (e.g. 'team consensus; prefer indigenous terms over loans')",
+    "sensitive_terms": "any terms needing special handling (divine familial language, taboo words, euphemisms)",
+    "notes": "anything else drafters must respect (media: print/audio; existing church usage; dialect choice)"
   },
 
   "suffixes": [],

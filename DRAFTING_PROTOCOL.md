@@ -8,6 +8,14 @@ Earlier ad-hoc drafts were **one-shot, NT-only, no enforcement, no verification.
 
 ---
 
+## Step 0 — Check readiness (free, 5 seconds)
+
+```bash
+bun tools/draft-readiness.ts
+```
+
+Before drafting anything, let the system tell you whether it *can*: overall and per-genre readiness bands from the corpus it actually has. A corpus that is WORKABLE for gospel narrative can be ELICITATION-FIRST for poetry — drafting a genre with no exemplars produces fluent guesswork no matter how good the rest of this protocol is. If the target passage's genre is thin, run an elicitation round first (`elicitation/ELICITATION.md`) and register whatever outside language data exists (`sources/README.md`).
+
 ## Step 1 — Load the context pack (exact order)
 
 Load these into the drafting session, in this order (file names follow your reference pack; build them from `references/_templates/`):
@@ -89,13 +97,22 @@ The one-shot attempt is what failed. Always iterate:
 
 ```bash
 bun tools/check-draft.ts <path-to-draft.json>
+bun tools/check-completeness.ts <path-to-draft.json>   # negation parity + dropped-clause heuristics vs the LWC parallel
 ```
 
 It reads the language profile and flags: script/orthography violations (the profile's `linter_rules`), vowel-length violations, leaked-auxiliary / borrowing density (`density_checks`), wrong key terms, and — against the lexicon — **any word that never appears in the corpus** (a probable hallucination, or a legitimate OT-specific term to confirm with a native speaker). Exit code is non-zero if any hard violation is found; the membership list is advisory. **No draft goes to the human reviewer until it shows no mechanical flags and you've eyeballed the unattested-word list** — the reviewer's time is for judgment calls (idioms, discourse, translation choices), not for catching mechanical leaks. ("No mechanical flags" is the entry bar, not a quality claim: every Barnwell *accuracy* category — wrong participant, dropped negation, wrong sense of an attested word — passes this verifier silently. Those are what steps 6–7 exist for.)
 
-## Step 5 — Record the result
+## Step 5 — Record the result, export when approved
 
 Save drafts under your results directory, note model + date, and record the verifier output and any expert scores. That accumulating record is the actual evidence for the "frontier vs fine-tuned pipeline" question — which is the experiment this harness exists to make runnable.
+
+Once the team has resolved every flag and approved the passage:
+
+```bash
+bun tools/export-usfm.ts <approved-draft.json>    # → .usfm for Paratext import
+```
+
+The exporter **refuses** a draft that still carries `⟨?⟩` / `⟨≈⟩` / `{A ⟂ B}` marks — unresolved flags are open team decisions, and undecided text does not enter Paratext. That refusal is the human-in-the-loop invariant, mechanized.
 
 ## Step 6 — Save the interlinear back-translation (consultant artifact)
 

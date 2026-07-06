@@ -15,7 +15,8 @@ Be honest about what this firewall does and doesn't buy: it keeps the comparison
 - `references/` — the **drafting pack** (load these): common-errors (negative prompt), narrative-exemplars (positive prompt), draft-annotation (uncertainty/options/confidence markup), proper-names, key-terms, orthography, grammar, style-guide. Build them from `references/_templates/`.
 - `profiles/` — your language profile (`profiles/_template.json` to copy; `profiles/README.md` documents every field).
 - `multi-model/` — `COUNCIL.md` (run several models as a panel), `dossier-template.md` (the output spec + a worked schematic), `review-prompt.md`, `drafts/`, `corrections/`.
-- `tools/` — `build-lexicon`, `check-draft` (`--lexicon` membership), `find-parallels` (retrieval), `score-draft` (grounded confidence), `compare-drafts` (cross-model diff), `generate-system-instruction`, `extract-reference-versions`, `fetch-ot-reference`. All read the profile.
+- `tools/` — `build-lexicon`, `check-draft` (`--lexicon` membership), `check-completeness` (negation/dropped-clause heuristics), `draft-readiness` (enough data to draft?), `find-parallels` (retrieval), `score-draft` (grounded confidence), `compare-drafts` (cross-model diff), `generate-system-instruction`, `register-source` (graded ingestion of any language data), `export-usfm` (approved draft → Paratext), `extract-reference-versions`. All read the profile.
+- `sources/` + `elicitation/` — ingest any language data with quality grades; grow the language via gap-driven elicitation when data is thin (`bun tools/draft-readiness.ts` tells you which mode you're in).
 - the LWC source parallel (a major-language Bible the team reads) lives under the profile's `paths.references`; the corpus and any back-translation live in your corpus directory.
 
 ## To draft a passage (the main task)

@@ -49,6 +49,25 @@ out += `You are drafting Scripture in **${profile.language}** (ISO ${iso}), ${pr
 
 if (profile.divine_name) out += `**Divine name:** render as **${profile.divine_name}**.\n\n`;
 
+// Translation brief — the team's philosophy binds every drafting choice.
+const brief = profile.raw?.translation_brief;
+if (brief && typeof brief === "object") {
+  const label: Record<string, string> = {
+    philosophy: "Translation philosophy",
+    audience: "Audience",
+    register: "Register",
+    key_term_policy: "Key-term policy",
+    sensitive_terms: "Sensitive terms",
+    notes: "Additional brief notes",
+  };
+  const rows = Object.entries(brief).filter(([k, v]) => label[k] && typeof v === "string" && v && !v.includes("|"));
+  if (rows.length) {
+    out += `**The team's translation brief (binding — every choice below aligns with this):**\n`;
+    for (const [k, v] of rows) out += `- ${label[k]}: ${v}\n`;
+    out += `Where the brief and a "better" rendering conflict, follow the brief and surface the tension as an option {A ⟂ B} with the warrant — the team owns the philosophy, not you.\n\n`;
+  }
+}
+
 if (keyTerms.length) {
   out += `**Key terms (use these established renderings):**\n`;
   for (const [k, v] of keyTerms) out += `- ${k} → ${v}\n`;
@@ -91,7 +110,7 @@ for (const [stem, title] of COMPONENTS) {
 
 out += `---\n\n## Procedure\n\n`;
 out += `1. Draft the passage verse by verse in ${profile.language}.\n`;
-out += `2. Where you are unsure of a word or rendering, mark it ⟨?⟩ and, if you have alternatives, give them as {option A ⟂ option B} with a one-line warrant.\n`;
+out += `2. Where you are unsure of a word or rendering, mark it ⟨?⟩ and, if you have alternatives, give them as {option A ⟂ option B} with a one-line warrant. Where a word is genuine but a workable-not-optimal fit for a precise source concept, mark it ⟨≈⟩ (a research/elicitation candidate, not an error).\n`;
 out += `3. Prefer vocabulary and constructions attested in the in-context pack. If a word you want is not attested, it is probably a borrowing — find the local form or mark it ⟨?⟩.\n`;
 out += `4. Output verse-keyed JSON: {"verses": {"<Book>:<ch>:<v>": "draft text", ...}} so the verifier (tools/check-draft.ts, tools/score-draft.ts) can read it.\n`;
 if (genreArg) out += `\nGenre focus for this run: **${genreArg}** — lean on the matching narrative/poetic exemplars above.\n`;

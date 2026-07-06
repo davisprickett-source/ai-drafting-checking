@@ -7,11 +7,14 @@
 | Marker | Meaning | Example |
 |--------|---------|---------|
 | `word⟨?⟩` | low-confidence word — unsure it's genuine target language, or unsure of choice | `[word]⟨?⟩` |
+| `word⟨≈⟩` | **adequacy flag** — the word is genuine and works, but a mature speaker likely has something better; research/elicitation candidate | `[word]⟨≈⟩` |
 | `{A ⟂ B}` | genuine alternatives, both defensible | `{[option A] ⟂ [option B]}` |
 | `⟦…⟧` | inline crux note (why this is hard) | `⟦Heb. ambiguous: "spirit" or "wind"⟧` |
 | `NAME⟨?⟩` | proposed proper name not yet confirmed | `[Name]⟨?⟩` |
 
 **Honesty rule (carry over from the protocol):** if the model is not confident a word is real in the target language, it marks it `⟨?⟩` rather than emitting a confident guess. A flagged gap beats a fluent hallucination every time.
+
+**⟨?⟩ vs ⟨≈⟩ — two different doubts, two different fixes.** `⟨?⟩` is an *existence* doubt ("is this word real?") — resolved by verification: `grep-corpus`, `discover-term`, a native speaker's yes/no. `⟨≈⟩` is an *adequacy* doubt ("this works, but is it what a mature speaker would actually reach for?") — the gap between a B2 speaker who can express most things and a C2 speaker who expresses them *well*. It's resolved by research and elicitation, not verification: search the enrichment sources (`sources/`), ask the elicitation question ("how would you say X when Y?"), listen for the collocation, the register, the idiom the corpus happens not to contain. Use `⟨≈⟩` when the attested word is a broad/generic fit for a precise source concept, when the corpus attests it only in a different sense or register, or when the rendering is grammatical but flat where the source is vivid. A draft with honest `⟨≈⟩` marks is how the system tells the team where its language ceiling is — and each resolved `⟨≈⟩` (banked via `approve-form` or the corrections log) raises that ceiling permanently.
 
 ## 2. Options must carry a WARRANT
 
@@ -39,9 +42,11 @@ A model's self-rated "confidence: 8/10" is noise; models are overconfident and u
 | Model self-report | the model | Allowed, but explicitly the **least** reliable — down-weighted, never the headline number. |
 
 `score-draft.ts` rolls the objective signals into a tier per verse:
-- **HIGH** — attestation ≥ 97%, no `⟨?⟩` markers, models agree (or single draft).
-- **MEDIUM** — minor gaps.
+- **HIGH** — content-word attestation ≥ 97%, no `⟨?⟩` markers, AND a second draft agrees (a single draft caps at MEDIUM — attestation alone can't corroborate).
+- **MEDIUM** — minor gaps, or no cross-draft check available.
 - **LOW** — attestation < 85%, or `⟨?⟩` markers present, or models disagree. These verses get human attention first.
+
+The tiers are mechanical triage, never an accuracy verdict — a fluent verse that names the wrong participant can pass every signal above. Spot-checks always include a random sample of unflagged verses for exactly that reason.
 
 The tier is shown *with its reasons*, e.g. `[LOW: attestation 78%, 2 unattested words, models disagree]` — transparency, not a bare number.
 

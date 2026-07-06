@@ -24,6 +24,14 @@ $EDITOR models.json                    # see MODELS.md
 
 # 4. Verify the install
 bun tools/check-setup.ts --profile profiles/xyz.json
+
+# 5. Ask the system how much it can do with your data (free, honest)
+bun tools/draft-readiness.ts --profile profiles/xyz.json
+#   → overall + per-genre readiness bands, and whether to draft or elicit first.
+
+# 6. Register any OTHER language data you have — dictionaries, grammars (even
+#    a 19th-century one), articles, the team's own texts (see sources/README.md)
+bun tools/register-source.ts --file <path> --type dictionary --title "..." --grade B
 ```
 
 `check-setup` tells you what's ready and what's still to-do (it now also checks your model roster). When it says **Fully set up** — or **Usable** with only `!` items — you can draft or check.

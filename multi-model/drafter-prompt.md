@@ -27,6 +27,9 @@ RULES OF THE DRAFT (in addition to the system instruction)
   - Ground every non-trivial word in the corpus: reuse forms from the exemplars
     above; if you are not sure a word is genuine <LANGUAGE>, mark it ⟨?⟩ — never
     invent a plausible-but-foreign form silently.
+  - If a word is genuine but feels like a broad/flat fit for a precise or vivid
+    source concept — workable, not optimal — mark it ⟨≈⟩ (research candidate).
+    ⟨?⟩ = "may not exist"; ⟨≈⟩ = "exists, but a mature speaker may say it better".
   - Where the text is genuinely open (idiom, metaphor, measurement, textual crux,
     unknown concept), give 2–3 options {A ⟂ B} each with a one-line warrant.
     Do not resolve real forks yourself.
