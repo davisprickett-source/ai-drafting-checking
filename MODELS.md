@@ -35,6 +35,7 @@ Only `workhorse`, `deep`, and `independent` are required. Omit the optional role
    - **invoke** — *how you call it*: `subagent` (spawned inside a Claude Code session), `cli` (you run a CLI and paste the result), `api` (a script calls the API), or `manual` (you drive a chat window).
 3. Set `active_roster` to the roster you want. Switch vendors any time by changing that one string.
 4. `bun tools/estimate-cost.ts 30` — confirm the cost table reflects your roster. `--roster <name>` previews another without switching.
+5. *(optional, for real dollar figures)* set `usd_per_unit`: the API price in USD of one baseline agent run (≈30k output tokens on your `cost_unit=1` model — look up your vendor's current per-token price and multiply). The cost table then shows a `~USD` column. Leave it `0` if you run on a subscription (marginal cost $0) or don't want dollar estimates; prices churn, so date-check yours.
 
 Shipped rosters you can use as-is or copy: `claude`, `gemini-only`, `openai-only`, `mixed-budget`, `local-first`.
 

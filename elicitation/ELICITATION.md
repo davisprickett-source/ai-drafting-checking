@@ -24,6 +24,7 @@
 ## Session shapes
 
 - **Gap-filling session (30 min):** run `draft-readiness`, pick the weakest genre or the last draft's flags, generate 10–15 questions with `elicitation-prompt.md`, the team answers orally/in chat in their LWC, the assistant transcribes + banks.
+- **Interactive page:** `bun tools/build-elicitation.ts <session.json>` renders the question set to a single offline HTML file — a team member answers on a phone or laptop (no install, no account), clicks **Download answers**, and gets a ready-made field-notes markdown to send back. Perfect for the native speaker who isn't in the drafting session.
 - **Micro-text session:** model drafts 3 short non-biblical texts genre-matched to an upcoming book (e.g. poetic laments before drafting Lamentations); team corrects; corrections banked and mined for patterns.
 - **Register session:** same content elicited for two audiences (formal/informal, old/young) to map register — feeds the style guide and the translation brief.
 

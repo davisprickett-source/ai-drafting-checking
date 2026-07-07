@@ -2,6 +2,7 @@
   "_README": "Copy to models.json and edit. This file makes the system MODEL-AGNOSTIC: the workflows (MODES.md, multi-model/COUNCIL.md, estimate-cost.ts) refer to abstract ROLES, never to specific model names. You map each role to whatever model you actually have — any vendor (Anthropic, Google, OpenAI, xAI, a local model). Swap the whole roster by changing `active_roster`. JSON has no comments; every field is documented in MODELS.md.",
 
   "active_roster": "claude",
+  "usd_per_unit": 0,
 
   "_roles_doc": {
     "workhorse": "Routine drafting and per-verse review. Mid capability, low cost. The tier you run most.",

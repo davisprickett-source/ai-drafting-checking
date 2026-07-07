@@ -28,7 +28,11 @@ TASK — produce an elicitation question set:
   4. Note for each item, in one bracket, what the answer will teach the system
      [word for X / aspect marking in Y / poetic register] — so the human transcriber
      knows what to listen for.
-  5. Output as a numbered list the team can answer top-to-bottom in one sitting.
+  5. Output TWO things: (a) the numbered list the team can answer top-to-bottom in
+     one sitting, and (b) the same set as session JSON for the interactive page:
+     {"language": "...", "lwc": "...", "date": "...", "focus": "...",
+      "items": [{"id": "Q1", "type": "question|micro-text", "question": "...",
+                 "teaches": "...", "proposed": "optional guess to confirm"}]}
 
 RULES
   - Never present an AI-invented <LANGUAGE> form as if it were real; anything you

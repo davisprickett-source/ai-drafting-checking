@@ -15,7 +15,7 @@
 1. **Comprehension** — does it communicate the meaning? Generate comprehension questions (Co) and, where possible, check community answers. → `Clarity [Co]`, `Assumed information [Co]`.
 2. **Accuracy** — back-translate, diff against the source. Flag additions, losses, distortions, wrong participants. → `Accuracy [Co]`, `Omission [Co]`, `Ambiguity [Co]`, `Participant reference [D]`.
 3. **Naturalness** — does it read as normal speech? (corpus/lexicon if available). → `Naturalness [Co]`, `Lexical correspondence [L]`, `Orthography issues [RL]`.
-4. **Key terms** — correct rendering + consistency across the book. → `Key biblical term [L]: <term>`, `Lexical correspondence [L]`.
+4. **Key terms** — correct rendering + consistency across the book. Run the free pass first: `bun tools/check-consistency.ts <translation.json>` (anchored-form counts, variant renderings, concept-present/anchor-absent verses vs the LWC parallel) — then the human judges which variation is deliberate. → `Key biblical term [L]: <term>`, `Lexical correspondence [L]`.
 5. **Exegesis / figures / discourse** — idioms, metaphors, rhetorical questions, figures; participant intro, cohesion, structure; textual/interpretive choices. → `[Rh]`, `[L] Idiom`, `[D]`, `[E]`.
 6. **Culture** — unknown ideas, anachronism, mismatch, measurements. → `Unknown idea [Cu]`, `Cross-cultural mismatch [Cu]`.
 

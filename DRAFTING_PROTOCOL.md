@@ -98,6 +98,7 @@ The one-shot attempt is what failed. Always iterate:
 ```bash
 bun tools/check-draft.ts <path-to-draft.json>
 bun tools/check-completeness.ts <path-to-draft.json>   # negation parity + dropped-clause heuristics vs the LWC parallel
+bun tools/check-consistency.ts <path-to-draft.json>    # key-term consistency (variant renderings, anchor-absent verses)
 ```
 
 It reads the language profile and flags: script/orthography violations (the profile's `linter_rules`), vowel-length violations, leaked-auxiliary / borrowing density (`density_checks`), wrong key terms, and — against the lexicon — **any word that never appears in the corpus** (a probable hallucination, or a legitimate OT-specific term to confirm with a native speaker). Exit code is non-zero if any hard violation is found; the membership list is advisory. **No draft goes to the human reviewer until it shows no mechanical flags and you've eyeballed the unattested-word list** — the reviewer's time is for judgment calls (idioms, discourse, translation choices), not for catching mechanical leaks. ("No mechanical flags" is the entry bar, not a quality claim: every Barnwell *accuracy* category — wrong participant, dropped negation, wrong sense of an attested word — passes this verifier silently. Those are what steps 6–7 exist for.)

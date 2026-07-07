@@ -27,7 +27,7 @@ const TOK = 30000; // ~tokens per agent (observed)
 
 // ---- load roster config (graceful fallback if models.json is absent) ----
 type Entry = { provider: string; model: string; capability: string; cost_unit: number; invoke: string };
-type Cfg = { active_roster: string; rosters: Record<string, Record<string, Entry>>; tiers: Record<string, { role: string; count: number }[]> };
+type Cfg = { active_roster: string; usd_per_unit?: number; rosters: Record<string, Record<string, Entry>>; tiers: Record<string, { role: string; count: number }[]> };
 
 const cfgPath = join(ROOT, "models.json");
 let cfg: Cfg | null = null;
@@ -61,11 +61,13 @@ const note: Record<string, string> = {
   "L3": "deep: strong models + independent vendor + deep-analysis lenses — only for hard/flagged verses",
 };
 
+const USD = typeof cfg.usd_per_unit === "number" && cfg.usd_per_unit > 0 ? cfg.usd_per_unit : null;
+
 console.log(`\nEstimate for ${N} verses · roster "${rosterName}"`);
 console.log(`roles: ` + Object.entries(roster).map(([r, e]) => `${r}=${e.provider}:${e.model}(${e.cost_unit}u)`).join("  ") + `\n`);
-console.log("tier".padEnd(8) + "agents".padStart(8) + "~tokens".padStart(12) + "cost-units".padStart(12) + "   notes");
-console.log("-".repeat(92));
-console.log("L0".padEnd(8) + String(0).padStart(8) + "0".padStart(12) + "0".padStart(12) + "   FREE — verifier, grep-corpus, find-structures, rendering. Always run first.");
+console.log("tier".padEnd(8) + "agents".padStart(8) + "~tokens".padStart(12) + "cost-units".padStart(12) + (USD ? "~USD".padStart(10) : "") + "   notes");
+console.log("-".repeat(USD ? 102 : 92));
+console.log("L0".padEnd(8) + String(0).padStart(8) + "0".padStart(12) + "0".padStart(12) + (USD ? "$0.00".padStart(10) : "") + "   FREE — verifier, grep-corpus, find-structures, rendering. Always run first.");
 for (const [tier, mix] of Object.entries(cfg.tiers)) {
   let agents = 0, units = 0, missing = "";
   for (const { role, count } of mix) {
@@ -75,8 +77,15 @@ for (const [tier, mix] of Object.entries(cfg.tiers)) {
     units += count * e.cost_unit * N;
   }
   const tokens = agents * TOK;
-  console.log(tier.padEnd(8) + String(agents).padStart(8) + ((tokens / 1e6).toFixed(2) + "M").padStart(12) + String(units).padStart(12) + "   " + (note[tier] ?? "") + missing);
+  const usdCol = USD ? ("$" + (units * USD).toFixed(2)).padStart(10) : "";
+  console.log(tier.padEnd(8) + String(agents).padStart(8) + ((tokens / 1e6).toFixed(2) + "M").padStart(12) + String(units).padStart(12) + usdCol + "   " + (note[tier] ?? "") + missing);
 }
 console.log(`\ncost-units = relative spend from each model's cost_unit in models.json (set Sonnet=1 as baseline).`);
+if (USD)
+  console.log(`~USD = cost-units × usd_per_unit ($${USD}/unit from models.json). API pay-per-token pricing only —`),
+  console.log(`subscription-covered agents (e.g. a Claude Max session) cost $0 marginal. Re-check prices; they churn.`);
+else
+  console.log(`For dollar figures: set "usd_per_unit" in models.json — the API price in USD of ONE baseline agent run`),
+  console.log(`(≈30k output tokens on your cost_unit=1 model). Then this table adds a ~USD column.`);
 console.log(`L0 (verifier, grep-corpus, find-structures, find-parallels, build-dossier) costs ZERO inference — use it freely.`);
 console.log(`Switch vendors: edit active_roster in models.json, or pass --roster <name>. Tip: draft in 3-5 verse batches.\n`);
